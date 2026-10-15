@@ -1,0 +1,35 @@
+# .NET build outputs
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio and Rider
+.vs/
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Test output and code coverage
+[Tt]est[Rr]esult*/
+*.trx
+*.coverage
+*.coveragexml
+coverage/
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+
+# Local secrets and environment settings
+appsettings.Development.json
+appsettings.Local.json
+.env
+.env.*
+!.env.example
+
+# OS files
+.DS_Store
+Thumbs.db
