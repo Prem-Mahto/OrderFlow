@@ -18,7 +18,6 @@ public class OrderService
     private readonly IOrderValidator _validator;
     private readonly IDiscountCalculator _discountCalculator;
     private readonly IPaymentProvider _paymentProvider;
-    private readonly INotificationService _notification_service; // placeholder
     private readonly INotificationService _notificationService;
     private readonly IOrderRepository _orderRepository;
 
