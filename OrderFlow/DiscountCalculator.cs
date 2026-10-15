@@ -1,4 +1,9 @@
-public class DiscountCalculator
+public interface IDiscountCalculator
+{
+    decimal ApplyDiscount(string discountCode, decimal orderTotal);
+}
+
+public class DiscountCalculator : IDiscountCalculator
 {
     public decimal ApplyDiscount(string discountCode, decimal orderTotal)
     {

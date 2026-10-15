@@ -1,4 +1,9 @@
-public class PaymentProvider
+public interface IPaymentProvider
+{
+    bool ProcessPayment(string paymentMethod, decimal orderTotal);
+}
+
+public class PaymentProvider : IPaymentProvider
 {
     public bool ProcessPayment(string paymentMethod, decimal orderTotal)
     {

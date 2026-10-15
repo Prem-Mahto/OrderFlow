@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using OrderFlow;
 
 public class Program
@@ -15,7 +13,11 @@ public class Program
             DiscountCode = "SAVE10"
         };
 
-        var service = new OrderService();
+        var service = new OrderService(new OrderValidator(),
+            new DiscountCalculator(),
+            new PaymentProvider(),
+            new NotificationService(),
+            new OrderRepository());
 
         service.ProcessOrder(order);
     }

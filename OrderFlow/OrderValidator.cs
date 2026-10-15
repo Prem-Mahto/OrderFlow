@@ -1,6 +1,11 @@
 using OrderFlow;
 
-public class OrderValidator
+public interface IOrderValidator
+{
+    void Validate(Order order);
+}
+
+public class OrderValidator : IOrderValidator
 {
     public void Validate(Order order)
     {

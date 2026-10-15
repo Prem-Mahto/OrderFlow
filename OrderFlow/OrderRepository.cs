@@ -1,6 +1,10 @@
 using OrderFlow;
+public interface IOrderRepository
+{
+    bool SaveOrder(Order order);
+}
 
-public class OrderRepository
+public class OrderRepository : IOrderRepository
 {
     public bool SaveOrder(Order order)
     {
