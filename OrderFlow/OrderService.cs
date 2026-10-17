@@ -3,29 +3,31 @@ using OrderFlow;
 public class OrderService
 {
     public OrderService(IOrderValidator validator,
-        IDiscountCalculator discountCalculator,
+        IDiscountStrategyFactory discountStrategyFactory,
         IPaymentProvider paymentProvider,
         INotificationService notificationService,
         IOrderRepository orderRepository)
     {
         _validator = validator;
-        _discountCalculator = discountCalculator;
+        _discountStrategyFactory = discountStrategyFactory;
         _paymentProvider = paymentProvider;
         _notificationService = notificationService;
         _orderRepository = orderRepository;
     }
 
     private readonly IOrderValidator _validator;
-    private readonly IDiscountCalculator _discountCalculator;
+    private readonly IDiscountStrategyFactory _discountStrategyFactory;
     private readonly IPaymentProvider _paymentProvider;
     private readonly INotificationService _notificationService;
     private readonly IOrderRepository _orderRepository;
 
     public void ProcessOrder(Order order)
-    {        
+    {
         _validator.Validate(order);
 
-        order.Total = _discountCalculator.ApplyDiscount(order.DiscountCode, order.Total);
+        var discountStrategy = _discountStrategyFactory.Create(order.DiscountCode);
+
+        order.Total = discountStrategy.ApplyDiscount(order.Total);
 
         if (!_paymentProvider.ProcessPayment(order.PaymentMethod, order.Total))
         {

@@ -4,6 +4,20 @@ namespace OrderFlow.Test;
 
 public class OrderServiceTests
 {
+    public static void VIPDiscountStrategy_Test()
+    {
+        //Arrange
+        var orderTotal = 100m;
+        var discountStrategy = new VipDiscountStrategy();
+
+        //Act
+        var discountedTotal = discountStrategy.ApplyDiscount(orderTotal);
+
+        //Assert
+        TestAssert.Equal(70m, discountedTotal, "VIP discount should reduce the order total by 30%.");
+    }
+
+
     public static void SAVE10_Test()
     {
         // Arrange
@@ -16,14 +30,13 @@ public class OrderServiceTests
             DiscountCode = "SAVE10"
         };
 
-
         var validator = new MockOrderValidator();
         var paymentProvider = new MockPaymentProvider();
         var notificationService = new MockNotificationService();
         var repository = new MockOrderRepository();
 
-        var service = new OrderService(validator,
-            new DiscountCalculator(),
+        var service = new OrderService(validator,           
+            new DiscountStrategyFactory(),
             paymentProvider,
             notificationService,
             repository);

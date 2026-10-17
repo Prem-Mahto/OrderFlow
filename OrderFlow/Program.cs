@@ -14,7 +14,7 @@ public class Program
         };
 
         var service = new OrderService(new OrderValidator(),
-            new DiscountCalculator(),
+            new DiscountStrategyFactory(),
             new PaymentProvider(),
             new NotificationService(),
             new OrderRepository());

@@ -23,7 +23,9 @@ The original `OrderService` God class has completed its first Single Responsibil
 - `NotificationService`
 - `OrderRepository`
 
-`OrderService` still constructs these concrete collaborators with `new`. This is intentional. The next learning pass is constructor injection and Dependency Inversion Principle (DIP). Do not introduce interfaces, a DI container, Strategy, Factory, Observer, or architectural layers before the learner is ready for that specific pass.
+Constructor injection and DIP are complete: `OrderService` depends on collaborator interfaces and `Program.cs` is the composition root. Individual discount algorithms have also been extracted into Strategy implementations and have a focused test. `DiscountStrategyFactory` owns the mapping from a discount code to its discount strategy.
+
+`PaymentProvider` still selects payment behavior through a payment-method branch. This is the next learning pass: first extract payment algorithms into Strategies, then move their selection into a Factory. Do not introduce a DI container, Observer, Decorator, Adapter, Repository redesign, Unit of Work, or architectural layers before the learner is ready for that specific pass.
 
 ## Mentoring approach
 
@@ -41,14 +43,15 @@ The original `OrderService` God class has completed its first Single Responsibil
 Preserve this order unless the learner explicitly changes it:
 
 1. Completed: SRP extraction from the initial God class.
-2. Next: constructor injection and DIP in `OrderService`.
-3. Strategy for payment-method and discount-rule variation.
-4. Factory for justified creation and selection logic.
-5. Observer for order lifecycle notifications/events.
-6. Decorator and Adapter through concrete requirements.
-7. Repository and Unit of Work trade-offs.
-8. Automated unit and integration tests.
-9. Architecture review and documentation.
+2. Completed: constructor injection and DIP in `OrderService`.
+3. Completed for discounts: Strategy for discount-rule variation.
+4. Completed for discounts: Factory for selecting a discount strategy.
+5. Next: Strategy for payment-method variation, followed by a Factory that selects the payment strategy.
+6. Observer for order lifecycle notifications/events.
+7. Decorator and Adapter through concrete requirements.
+8. Repository and Unit of Work trade-offs.
+9. Expand automated unit and integration tests.
+10. Architecture review and documentation.
 
 Revisit SOLID, composition over inheritance, code smells, and refactoring technique whenever the current code provides a real example.
 
@@ -76,7 +79,7 @@ Revisit SOLID, composition over inheritance, code smells, and refactoring techni
 
 ## Testing and verification
 
-- The project currently has no automated test project. Do not add one until the learning step calls for it or the learner asks.
+- The project has a small console-based test harness with recording fakes and a minimal assertion helper. Use it for focused learning tests. Introduce a standard .NET test framework only when the learner asks or when the dedicated testing pass warrants it.
 - When tests are introduced, prefer focused tests of observable behavior over tests tied to private implementation details.
 - Keep unit tests deterministic and independent of live Azure services, databases, filesystems, clocks, and networks unless the test is explicitly an integration test.
 - When making a code change, build or run the relevant project when the learner asks for verification or when the change is presented as complete. State accurately what was and was not verified.

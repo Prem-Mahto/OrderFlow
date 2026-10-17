@@ -6,5 +6,9 @@ internal class Program
     {
         OrderServiceTests.SAVE10_Test();
         Console.WriteLine("PASS: SAVE10 order processing");
+        OrderServiceTests.VIPDiscountStrategy_Test();
+        Console.WriteLine("PASS: VIP discount strategy");
+        DiscountStrategyFactoryTests.Create_WithSave10Code_ReturnsStrategyThatAppliesTenPercentDiscount();
+        Console.WriteLine("PASS: SAVE10 discount strategy factory");
     }
 }
