@@ -13,9 +13,11 @@ public class Program
             DiscountCode = "SAVE10"
         };
 
+        var paymentStrategyFactory = new PaymentStrategyFactory(new ConsolePaymentGateway());
+
         var service = new OrderService(new OrderValidator(),
             new DiscountStrategyFactory(),
-            new PaymentProvider(),
+            paymentStrategyFactory,
             new NotificationService(),
             new OrderRepository());
 

@@ -1,4 +1,4 @@
-using OrderFlow;
+using OrderFlow.Test.Mocks;
 
 namespace OrderFlow.Test;
 
@@ -31,13 +31,12 @@ public class OrderServiceTests
         };
 
         var validator = new MockOrderValidator();
-        var paymentProvider = new MockPaymentProvider();
         var notificationService = new MockNotificationService();
         var repository = new MockOrderRepository();
-
+        var paymentFactory = new MockPaymentFactory();
         var service = new OrderService(validator,           
             new DiscountStrategyFactory(),
-            paymentProvider,
+            paymentFactory,
             notificationService,
             repository);
 
@@ -47,9 +46,9 @@ public class OrderServiceTests
         // Assert
         TestAssert.Equal(90m, order.Total, "SAVE10 should reduce the order total by 10%.");
         TestAssert.Equal(1, validator.CallCount, "The order should be validated once.");
-        TestAssert.Equal(1, paymentProvider.CallCount, "The payment should be processed once.");
-        TestAssert.Equal("CARD", paymentProvider.LastPaymentMethod, "The selected payment method should be used.");
-        TestAssert.Equal(90m, paymentProvider.LastOrderTotal, "Payment should use the discounted total.");
+        TestAssert.Equal(1, paymentFactory.LastCreatedStrategy?.CallCount, "The payment should be processed once.");
+        TestAssert.Equal("CARD", paymentFactory.LastCreatedStrategy?.LastPaymentMethod, "The selected payment method should be used.");
+        TestAssert.Equal(90m, paymentFactory.LastCreatedStrategy?.LastOrderTotal, "Payment should use the discounted total.");
         TestAssert.Equal(1, repository.CallCount, "The order should be saved once.");
         TestAssert.Same(order, repository.LastSavedOrder, "The processed order should be saved.");
         TestAssert.Equal(1, notificationService.CallCount, "The customer should be notified once.");

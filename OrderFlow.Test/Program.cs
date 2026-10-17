@@ -10,5 +10,9 @@ internal class Program
         Console.WriteLine("PASS: VIP discount strategy");
         DiscountStrategyFactoryTests.Create_WithSave10Code_ReturnsStrategyThatAppliesTenPercentDiscount();
         Console.WriteLine("PASS: SAVE10 discount strategy factory");
+        PaymentStrategyTests.CardPaymentStrategy_ChargesCardThroughGateway();
+        Console.WriteLine("PASS: card payment strategy");
+        PaymentStrategyTests.PaymentStrategyFactory_CreateWithCard_ReturnsConfiguredCardStrategy();
+        Console.WriteLine("PASS: CARD payment strategy factory");
     }
 }

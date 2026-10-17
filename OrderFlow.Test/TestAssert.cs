@@ -17,4 +17,13 @@ public static class TestAssert
             throw new InvalidOperationException(message);
         }
     }
+
+    public static void IsType<T>(object? actual, string message)
+    {
+        if (actual is not T)
+        {
+            throw new InvalidOperationException(
+                $"{message} Expected type: {typeof(T).Name}; actual type: {actual?.GetType().Name ?? "null"}.");
+        }
+    }
 }

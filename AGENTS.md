@@ -18,14 +18,16 @@ The project is in Phase 1: Advanced OOP, SOLID, and design patterns.
 The original `OrderService` God class has completed its first Single Responsibility Principle refactoring pass. The extracted collaborators are:
 
 - `OrderValidator`
-- `DiscountCalculator`
-- `PaymentProvider`
+- Discount strategies and `DiscountStrategyFactory`
+- Payment strategies and `PaymentStrategyFactory`
 - `NotificationService`
 - `OrderRepository`
 
 Constructor injection and DIP are complete: `OrderService` depends on collaborator interfaces and `Program.cs` is the composition root. Individual discount algorithms have also been extracted into Strategy implementations and have a focused test. `DiscountStrategyFactory` owns the mapping from a discount code to its discount strategy.
 
-`PaymentProvider` still selects payment behavior through a payment-method branch. This is the next learning pass: first extract payment algorithms into Strategies, then move their selection into a Factory. Do not introduce a DI container, Observer, Decorator, Adapter, Repository redesign, Unit of Work, or architectural layers before the learner is ready for that specific pass.
+Payment Strategy and Factory are complete. Payment strategies delegate external charging to `IPaymentGateway`; `Program.cs` supplies a safe console implementation, while tests provide a recording fake gateway.
+
+The next learning pass is Observer. `OrderService` currently calls notification delivery directly. Do not introduce a DI container, Decorator, Adapter, Repository redesign, Unit of Work, or architectural layers before the learner is ready for that specific pass.
 
 ## Mentoring approach
 
@@ -46,8 +48,8 @@ Preserve this order unless the learner explicitly changes it:
 2. Completed: constructor injection and DIP in `OrderService`.
 3. Completed for discounts: Strategy for discount-rule variation.
 4. Completed for discounts: Factory for selecting a discount strategy.
-5. Next: Strategy for payment-method variation, followed by a Factory that selects the payment strategy.
-6. Observer for order lifecycle notifications/events.
+5. Completed: Strategy for payment-method variation and Factory-based selection.
+6. Next: Observer for order lifecycle notifications/events.
 7. Decorator and Adapter through concrete requirements.
 8. Repository and Unit of Work trade-offs.
 9. Expand automated unit and integration tests.
