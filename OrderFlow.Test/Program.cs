@@ -14,5 +14,7 @@ internal class Program
         Console.WriteLine("PASS: card payment strategy");
         PaymentStrategyTests.PaymentStrategyFactory_CreateWithCard_ReturnsConfiguredCardStrategy();
         Console.WriteLine("PASS: CARD payment strategy factory");
+        NotificationObserverTests.FailedNotification_test();
+        Console.WriteLine("PASS: failed notification observer does not break the process");
     }
 }

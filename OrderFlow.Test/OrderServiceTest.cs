@@ -31,13 +31,11 @@ public class OrderServiceTests
         };
 
         var validator = new MockOrderValidator();
-        var notificationService = new MockNotificationService();
         var repository = new MockOrderRepository();
         var paymentFactory = new MockPaymentFactory();
         var service = new OrderService(validator,           
             new DiscountStrategyFactory(),
             paymentFactory,
-            notificationService,
             repository);
 
         // Act
@@ -51,7 +49,5 @@ public class OrderServiceTests
         TestAssert.Equal(90m, paymentFactory.LastCreatedStrategy?.LastOrderTotal, "Payment should use the discounted total.");
         TestAssert.Equal(1, repository.CallCount, "The order should be saved once.");
         TestAssert.Same(order, repository.LastSavedOrder, "The processed order should be saved.");
-        TestAssert.Equal(1, notificationService.CallCount, "The customer should be notified once.");
-        TestAssert.Equal(order.CustomerEmail, notificationService.LastCustomerEmail, "The notification should target the customer.");
     }
 }

@@ -18,8 +18,9 @@ public class Program
         var service = new OrderService(new OrderValidator(),
             new DiscountStrategyFactory(),
             paymentStrategyFactory,
-            new NotificationService(),
             new OrderRepository());
+
+        service.RegisterObserver(new OrderConfirmationObserver());
 
         service.ProcessOrder(order);
     }
