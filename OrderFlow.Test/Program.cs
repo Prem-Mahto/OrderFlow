@@ -18,5 +18,7 @@ internal class Program
         Console.WriteLine("PASS: failed notification observer does not break the process");
         LoggingDecoratorTests.LoggingDecorator_test();
         Console.WriteLine("PASS: logging decorator test");
+        LegacyEmailNotificationAdapterTests.AdapterCallsLegacyEmailClient_test();
+        Console.WriteLine("PASS: legacy email notification adapter calls legacy email client");
     }
 }

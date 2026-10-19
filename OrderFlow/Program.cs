@@ -19,8 +19,8 @@ public class Program
             new DiscountStrategyFactory(),
             paymentStrategyFactory,
             new OrderRepository());
-
-        service.RegisterObserver(new LoggingOrderObserver(new OrderConfirmationObserver()));
+        var legacyEmailAdapter = new LegacyEmailNotificationAdapter(new LegacyEmailClient());
+        service.RegisterObserver(new LoggingOrderObserver(legacyEmailAdapter));
 
         service.ProcessOrder(order);
     }
