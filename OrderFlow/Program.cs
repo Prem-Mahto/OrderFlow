@@ -20,7 +20,7 @@ public class Program
             paymentStrategyFactory,
             new OrderRepository());
 
-        service.RegisterObserver(new OrderConfirmationObserver());
+        service.RegisterObserver(new LoggingOrderObserver(new OrderConfirmationObserver()));
 
         service.ProcessOrder(order);
     }

@@ -16,5 +16,7 @@ internal class Program
         Console.WriteLine("PASS: CARD payment strategy factory");
         NotificationObserverTests.FailedNotification_test();
         Console.WriteLine("PASS: failed notification observer does not break the process");
+        LoggingDecoratorTests.LoggingDecorator_test();
+        Console.WriteLine("PASS: logging decorator test");
     }
 }
