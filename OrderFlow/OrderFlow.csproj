@@ -8,4 +8,8 @@
     <RootNamespace>OrderFlow</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="ADR\" />
+  </ItemGroup>
+
 </Project>
