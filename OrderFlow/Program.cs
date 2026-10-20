@@ -18,10 +18,12 @@ public class Program
         var service = new OrderService(new OrderValidator(),
             new DiscountStrategyFactory(),
             paymentStrategyFactory,
-            new OrderRepository());
+            new InMemoryOrderRepository());
+
         var legacyEmailAdapter = new LegacyEmailNotificationAdapter(new LegacyEmailClient());
         service.RegisterObserver(new LoggingOrderObserver(legacyEmailAdapter));
 
         service.ProcessOrder(order);
+
     }
 }

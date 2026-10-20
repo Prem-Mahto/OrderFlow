@@ -6,10 +6,14 @@ public class MockOrderRepository : IOrderRepository
 
     public Order? LastSavedOrder { get; private set; }
 
-    public bool SaveOrder(Order order)
+    public void Add(Order order)
     {
         CallCount++;
         LastSavedOrder = order;
-        return true;
+    }
+
+    public Order? GetById(int orderId)
+    {
+        throw new NotImplementedException();
     }
 }

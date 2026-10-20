@@ -26,4 +26,12 @@ public static class TestAssert
                 $"{message} Expected type: {typeof(T).Name}; actual type: {actual?.GetType().Name ?? "null"}.");
         }
     }
+
+    public static void Null(object? actual, string message)
+    {
+        if (actual is not null)
+        {
+            throw new InvalidOperationException(message);
+        }
+    }    
 }

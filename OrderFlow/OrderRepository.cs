@@ -1,14 +1,19 @@
 using OrderFlow;
 public interface IOrderRepository
 {
-    bool SaveOrder(Order order);
+    void Add(Order order);
+    Order? GetById(int orderId);
 }
 
-public class OrderRepository : IOrderRepository
+public class InMemoryOrderRepository: IOrderRepository
 {
-    public bool SaveOrder(Order order)
+    private readonly List<Order> _orders = new List<Order>();
+    public void Add(Order order)
     {
-        Console.WriteLine($"INSERT INTO Orders VALUES ({order.Id}, {order.Total})");
-        return true;
+        _orders.Add(order);
+    }
+    public  Order? GetById(int orderId)
+    {
+        return _orders.FirstOrDefault(o => o.Id == orderId);
     }
 }

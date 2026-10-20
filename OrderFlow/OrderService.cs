@@ -33,10 +33,7 @@ public class OrderService
             throw new InvalidOperationException("Payment processing failed.");
         }
 
-        if (!_orderRepository.SaveOrder(order))
-        {
-            throw new InvalidOperationException("Order could not be saved.");
-        }
+        _orderRepository.Add(order);
 
         NotifyObservers(order);
 

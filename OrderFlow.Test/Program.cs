@@ -20,5 +20,13 @@ internal class Program
         Console.WriteLine("PASS: logging decorator test");
         LegacyEmailNotificationAdapterTests.AdapterCallsLegacyEmailClient_test();
         Console.WriteLine("PASS: legacy email notification adapter calls legacy email client");
+        InMemoryOrderRepositoryTests.ProcessedOrderRetrievedById_Test();
+        Console.WriteLine("PASS: in-memory order repository retrieves processed order by ID");
+
+        UnitOfWorkPracticeTests.SuccessfulOrder_Test();
+        Console.WriteLine("PASS: Unit of work successful order");
+
+        UnitOfWorkPracticeTests.InsufficientStock_Test();
+        Console.WriteLine("PASS: Unit of work rollback for insufficient stock");
     }
 }
