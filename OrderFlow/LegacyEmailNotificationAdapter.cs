@@ -1,6 +1,5 @@
 namespace OrderFlow;
 
-
 public class LegacyEmailNotificationAdapter : IOrderObserver
 {
     private readonly ILegacyEmailClient _legacyEmailClient;

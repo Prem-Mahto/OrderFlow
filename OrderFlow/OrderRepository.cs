@@ -1,11 +1,12 @@
-using OrderFlow;
+namespace OrderFlow;
+
 public interface IOrderRepository
 {
     void Add(Order order);
     Order? GetById(int orderId);
 }
 
-public class InMemoryOrderRepository: IOrderRepository
+public class InMemoryOrderRepository : IOrderRepository
 {
     private readonly List<Order> _orders = new List<Order>();
     public void Add(Order order)

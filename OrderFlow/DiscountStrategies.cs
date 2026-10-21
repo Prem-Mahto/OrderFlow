@@ -1,3 +1,5 @@
+namespace OrderFlow;
+
 public interface IDiscountStrategy
 {
     decimal ApplyDiscount(decimal orderTotal);

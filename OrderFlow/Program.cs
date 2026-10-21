@@ -1,4 +1,4 @@
-using OrderFlow;
+namespace OrderFlow;
 
 public class Program
 {
