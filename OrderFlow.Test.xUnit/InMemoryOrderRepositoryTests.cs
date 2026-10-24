@@ -1,3 +1,5 @@
+using OrderFlow.Orders;
+using OrderFlow.Persistence;
 using OrderFlow.Test.xUnit.Mocks;
 
 namespace OrderFlow.Test.xUnit;

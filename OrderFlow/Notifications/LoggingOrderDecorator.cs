@@ -1,10 +1,12 @@
-namespace OrderFlow;
+using OrderFlow.Orders;
 
-public class LoggingOrderObserver : IOrderObserver
+namespace OrderFlow.Notifications;
+
+public class LoggingOrderDecorator : IOrderObserver
 {
     private readonly IOrderObserver _inner;
 
-    public LoggingOrderObserver(IOrderObserver inner)
+    public LoggingOrderDecorator(IOrderObserver inner)
     {
         _inner = inner;
     }

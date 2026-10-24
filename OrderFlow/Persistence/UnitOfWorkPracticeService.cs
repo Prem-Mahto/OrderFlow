@@ -1,21 +1,21 @@
-namespace OrderFlow.Practice;
+namespace OrderFlow.Persistence;
 
-public class PracticeOrder
+internal class PracticeOrder
 {
-    public int Id { get; set; }
-    public int ItemId { get; set; }
-    public string Name { get; set; } = string.Empty;
-    public decimal Price { get; set; }
-    public int Quantity { get; set; }
+    internal int Id { get; set; }
+    internal int ItemId { get; set; }
+    internal string Name { get; set; } = string.Empty;
+    internal decimal Price { get; set; }
+    internal int Quantity { get; set; }
 }
 
-public interface IPracticeInventoryRepository
+internal interface IPracticeInventoryRepository
 {
     int GetStock(int itemId);
     void ReserveStock(int itemId, int quantity);
     void ReleaseStock(int itemId, int quantity);
 }
-public class PracticeInventoryRepository : IPracticeInventoryRepository
+internal class PracticeInventoryRepository : IPracticeInventoryRepository
 {
     private readonly Dictionary<int, int> _inventory = new Dictionary<int, int>() { { 1, 10 }, { 2, 5 }, { 3, 0 }, { 4, 1 } };
 
@@ -42,13 +42,13 @@ public class PracticeInventoryRepository : IPracticeInventoryRepository
     }
 }
 
-public interface IPracticeOrderRepository
+internal interface IPracticeOrderRepository
 {
     void Add(PracticeOrder order);
-    public void Remove(PracticeOrder order);
-    public PracticeOrder? GetById(int orderId);
+    void Remove(PracticeOrder order);
+    PracticeOrder? GetById(int orderId);
 }
-public class PracticeOrderRepository : IPracticeOrderRepository
+internal class PracticeOrderRepository : IPracticeOrderRepository
 {
     private readonly List<PracticeOrder> _orders = new List<PracticeOrder>();
     public void Add(PracticeOrder order)
@@ -65,17 +65,17 @@ public class PracticeOrderRepository : IPracticeOrderRepository
     }
 }
 
-public class UnitOfWork
+internal class UnitOfWork
 {
-    public UnitOfWork(IPracticeInventoryRepository inventoryRepository, IPracticeOrderRepository orderRepository)
+    internal UnitOfWork(IPracticeInventoryRepository inventoryRepository, IPracticeOrderRepository orderRepository)
     {
         InventoryRepository = inventoryRepository;
         OrderRepository = orderRepository;
     }
-    public IPracticeInventoryRepository InventoryRepository { get; }
-    public IPracticeOrderRepository OrderRepository { get; }
+    internal IPracticeInventoryRepository InventoryRepository { get; }
+    internal IPracticeOrderRepository OrderRepository { get; }
 
-    public bool SaveOrder(PracticeOrder order)
+    internal bool SaveOrder(PracticeOrder order)
     {
         bool orderAdded = false;
         bool stockReserved = false;
@@ -100,18 +100,15 @@ public class UnitOfWork
     }
 }
 
-public class PracticeOrderService
+internal class PracticeOrderService
 {
     private readonly UnitOfWork _unitOfWork;
-    public PracticeOrderService(UnitOfWork unitOfWork)
+    internal PracticeOrderService(UnitOfWork unitOfWork)
     {
         _unitOfWork = unitOfWork;
     }
-    public bool ProcessOrder(PracticeOrder order)
+    internal bool ProcessOrder(PracticeOrder order)
     {
         return _unitOfWork.SaveOrder(order);
     }
 }
-
-
-

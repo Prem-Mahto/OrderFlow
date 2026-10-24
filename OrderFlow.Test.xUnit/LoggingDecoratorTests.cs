@@ -1,3 +1,5 @@
+using OrderFlow.Notifications;
+using OrderFlow.Orders;
 using OrderFlow.Test.xUnit.Mocks;
 
 namespace OrderFlow.Test.xUnit;
@@ -27,7 +29,7 @@ public class LoggingDecoratorTests
             paymentFactory,
             repository);
 
-        service.RegisterObserver(new LoggingOrderObserver(orderObserver));
+        service.RegisterObserver(new LoggingOrderDecorator(orderObserver));
         // Act
         service.ProcessOrder(order);
 

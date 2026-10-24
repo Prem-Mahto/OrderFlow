@@ -1,3 +1,5 @@
+using OrderFlow.Notifications;
+
 namespace OrderFlow.Test.xUnit.Mocks;
 
 public class MockLegacyEmailClient : ILegacyEmailClient

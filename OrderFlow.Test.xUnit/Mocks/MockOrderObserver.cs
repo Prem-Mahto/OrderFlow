@@ -1,3 +1,6 @@
+using OrderFlow.Notifications;
+using OrderFlow.Orders;
+
 namespace OrderFlow.Test.xUnit.Mocks;
 
 public class MockFailingOrderObserver : IOrderObserver

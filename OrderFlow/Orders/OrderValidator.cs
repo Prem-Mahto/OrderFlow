@@ -1,4 +1,4 @@
-namespace OrderFlow;
+namespace OrderFlow.Orders;
 
 public interface IOrderValidator
 {

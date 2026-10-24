@@ -1,3 +1,5 @@
+using OrderFlow.Discount;
+using OrderFlow.Orders;
 using OrderFlow.Test.xUnit.Mocks;
 
 namespace OrderFlow.Test.xUnit;

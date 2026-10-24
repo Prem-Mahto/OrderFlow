@@ -1,3 +1,5 @@
+using OrderFlow.Payments;
+
 namespace OrderFlow.Test.xUnit.Mocks;
 
 internal class MockPaymentFactory :IPaymentStrategyFactory

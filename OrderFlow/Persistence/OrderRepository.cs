@@ -1,4 +1,6 @@
-namespace OrderFlow;
+using OrderFlow.Orders;
+
+namespace OrderFlow.Persistence;
 
 public interface IOrderRepository
 {

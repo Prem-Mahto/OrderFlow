@@ -1,5 +1,8 @@
 namespace OrderFlow.Test.xUnit;
 
+using OrderFlow.Discount;
+using OrderFlow.Orders;
+using OrderFlow.Payments;
 using OrderFlow.Test.xUnit.Mocks;
 
 public class PaymentStrategyTests

@@ -1,4 +1,5 @@
-using OrderFlow;
+using OrderFlow.Orders;
+using OrderFlow.Persistence;
 namespace OrderFlow.Test.xUnit.Mocks;
 
 public class MockOrderRepository : IOrderRepository

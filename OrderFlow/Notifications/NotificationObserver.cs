@@ -1,4 +1,6 @@
-namespace OrderFlow;
+using OrderFlow.Orders;
+
+namespace OrderFlow.Notifications;
 
 public interface IOrderObserver
 {

@@ -1,3 +1,8 @@
+using OrderFlow.Discount;
+using OrderFlow.Notifications;
+using OrderFlow.Orders;
+using OrderFlow.Payments;
+
 namespace OrderFlow;
 
 public class Program
@@ -18,12 +23,11 @@ public class Program
         var service = new OrderService(new OrderValidator(),
             new DiscountStrategyFactory(),
             paymentStrategyFactory,
-            new InMemoryOrderRepository());
+            new Persistence.InMemoryOrderRepository());
 
         var legacyEmailAdapter = new LegacyEmailNotificationAdapter(new LegacyEmailClient());
-        service.RegisterObserver(new LoggingOrderObserver(legacyEmailAdapter));
+        service.RegisterObserver(new LoggingOrderDecorator(legacyEmailAdapter));
 
         service.ProcessOrder(order);
-
     }
 }

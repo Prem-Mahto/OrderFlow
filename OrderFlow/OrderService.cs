@@ -1,3 +1,9 @@
+using OrderFlow.Discount;
+using OrderFlow.Notifications;
+using OrderFlow.Orders;
+using OrderFlow.Payments;
+using OrderFlow.Persistence;
+
 namespace OrderFlow;
 
 public class OrderService
@@ -64,6 +70,5 @@ public class OrderService
             }
         }
     }
-
 
 }
