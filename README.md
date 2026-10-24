@@ -44,9 +44,10 @@ dotnet run
 3. Completed for discounts: Replace branching algorithms with Strategy.
 4. Completed for discounts: Introduce Factory for selecting a discount strategy.
 5. Completed: Replace payment branching with Strategy and select payment strategies through a Factory.
-6. Next: Introduce Observer for order lifecycle notifications.
-7. Continue with Decorator, Adapter, Repository, and Unit of Work only where the design warrants them.
-8. Expand automated tests and review the resulting architecture.
+6. Completed: Introduce Observer for order lifecycle notifications.
+7. Completed: Continue with Decorator, Adapter, Repository, and Unit of Work only where the design warrants them.
+8. Completed: Expand automated tests using XUnit
+9. review the resulting architecture.
 
 The broader curriculum and long-term career plan are included in this repository:
 

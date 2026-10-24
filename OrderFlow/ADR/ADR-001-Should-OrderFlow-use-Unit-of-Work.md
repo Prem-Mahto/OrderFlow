@@ -1,4 +1,4 @@
-ADR-001-Should-OrderFlow-use-Unit-of-Work
+ADR-001: Should OrderFlow use Unit of Work
 - Status: Rejected
 - Decision Date: 19 Oct 2026
 - Deciders: Prem Mahto and Codex
