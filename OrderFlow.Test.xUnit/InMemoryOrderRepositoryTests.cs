@@ -39,5 +39,6 @@ public class InMemoryOrderRepositoryTests
 
         var retrievedOrder = repository.GetById(order.Id);
         Assert.Equal(order, retrievedOrder);
+        Assert.Equal(order.Id, retrievedOrder.Id);
     }
 }

@@ -1,12 +1,10 @@
+using OrderFlow.Persistence;
 
-using OrderFlow;
-using OrderFlow.Practice;
-using OrderFlow.Test;
-
-
-internal class UnitOfWorkPracticeTests
+namespace OrderFlow.Test.xUnit;
+public class UnitOfWorkPracticeTests
 {
-    public static void SuccessfulOrder_Test()
+    [Fact]
+    public void OrderProcessed_WithSufficientStock_ReducesStockAndAddsOrder()
     {
         var unitOfWork = new UnitOfWork(new PracticeInventoryRepository(), new PracticeOrderRepository());
 
@@ -25,12 +23,13 @@ internal class UnitOfWorkPracticeTests
         service.ProcessOrder(order);
         var finalStock = unitOfWork.InventoryRepository.GetStock(order.ItemId);
 
-        TestAssert.Equal(initialStock - order.Quantity, finalStock, "stock is reduced");
+        Assert.Equal(initialStock - order.Quantity, finalStock);
         var retrievedOrder = unitOfWork.OrderRepository.GetById(order.Id);
-        TestAssert.Same(order, retrievedOrder, "The retrieved order should be the same as the processed order.");
+        Assert.Equal(order, retrievedOrder);
     }
 
-    public static void InsufficientStock_Test()
+    [Fact]
+    public void OrderProcessed_WithInsufficientStock_DoesNotReduceStockAndDoesNotAddOrder()
     {
         var unitOfWork = new UnitOfWork(new PracticeInventoryRepository(), new PracticeOrderRepository());
         var service = new PracticeOrderService(unitOfWork);
@@ -48,8 +47,8 @@ internal class UnitOfWorkPracticeTests
         service.ProcessOrder(order);
         var finalStock = unitOfWork.InventoryRepository.GetStock(order.ItemId);
 
-        TestAssert.Equal(initialStock, finalStock, "stock should not be reduced");
+        Assert.Equal(initialStock, finalStock);
         var retrievedOrder = unitOfWork.OrderRepository.GetById(order.Id);
-        TestAssert.Null(retrievedOrder, "The order should not be in repository.");
+        Assert.Null(retrievedOrder);
     }
 }
