@@ -18,6 +18,9 @@
 *.coveragexml
 coverage/
 
+# Archify diagrams and generated evidence
+.archify/
+
 # NuGet
 *.nupkg
 *.snupkg
