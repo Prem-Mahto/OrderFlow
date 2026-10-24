@@ -2,7 +2,7 @@
 
 OrderFlow is a C#/.NET architecture-learning project. It began as a deliberately messy order-processing console application and was refactored in small, explainable steps during Phase 1.
 
-## Phase 1 status
+## Phase 1 status : Complete
 
 Phase 1 implementation is complete. It covers Advanced OOP, SOLID, and selected GoF patterns. The learner is completing the final review before beginning Phase 2.
 
