@@ -1,23 +1,22 @@
 # OrderFlow v1
 
-OrderFlow is a C#/.NET learning project that evolves from a deliberately messy order-processing console application into a portfolio system for software-architecture practice.
-
-The project follows an incremental refactoring approach: each change addresses a concrete design problem before introducing another pattern or architectural layer.
+OrderFlow is a C#/.NET learning project that starts with a deliberately simple order-processing console application and evolves through small architecture and design exercises.
 
 ## Current checkpoint
 
-Phase 1: Advanced OOP, SOLID, and design patterns.
+**Phase 0: Mindset & Self-Assessment** (`Phase-0-initial-code` branch).
 
-The first refactoring pass has separated the original `OrderService` God class into focused collaborators:
+This phase focuses on architecture as decisions and trade-offs, quality attributes, and stakeholder needs. The hands-on exercise is to write a retroactive Architecture Decision Record (ADR) for a real decision, using **Context → Options Considered → Decision → Consequences**. See Phase 0 in `csharp-to-software-architect-curriculum.md` for the prompts.
 
-- `OrderValidator` validates an incoming order.
-- `DiscountCalculator` applies the current discount rules.
-- `PaymentProvider` processes the selected payment method.
-- `OrderRepository` persists the order.
-- `NotificationService` notifies the customer.
-- `OrderService` coordinates the order-processing workflow.
+## Starting application
 
-The next refactoring pass is dependency injection and dependency inversion. The current implementation intentionally still constructs its collaborators inside `OrderService`, making that coupling visible before it is addressed.
+The current code is the initial baseline for later refactoring:
+
+- `Program.Main` creates a sample `Order` and calls `OrderService`.
+- `OrderService` currently performs validation, applies discount rules, selects a payment method, prints a notification, and prints a SQL-like persistence statement in one method.
+- Payment, notification, and persistence are console messages. The project does not connect to a payment provider, email service, or database.
+
+This intentionally concentrated design gives the later Single Responsibility Principle exercise a concrete starting point.
 
 ## Run locally
 
@@ -27,19 +26,19 @@ Prerequisite: .NET 9 SDK.
 dotnet run
 ```
 
-## Learning sequence
+## Learning progression
 
-1. Extract responsibilities using SRP. *(Current checkpoint)*
-2. Apply constructor injection and dependency inversion.
-3. Replace payment and discount branching with Strategy.
-4. Introduce Factory, Observer, Decorator, Adapter, Repository, and Unit of Work only where the design warrants them.
-5. Add focused automated tests and review the resulting architecture.
+1. **Phase 0:** Practice architectural trade-off thinking and complete a retroactive ADR.
+2. **Phase 1:** Extract order-processing responsibilities using the Single Responsibility Principle.
+3. Apply constructor injection and Dependency Inversion Principle to `OrderService`.
+4. Use Strategy for payment-method and discount-rule variation.
+5. Introduce other patterns, tests, and architecture documentation as the exercises call for them.
 
-The broader curriculum and long-term career plan are included in this repository:
+The broader curriculum and long-term career plan are included here:
 
 - `csharp-to-software-architect-curriculum.md`
 - `career-upskilling-master-plan-optimized.md`
 
 ## Notes
 
-This is a learning system, not a production payment platform. Payment, persistence, and notification actions currently write to the console so that the design can evolve safely in small, understandable steps.
+This is a learning system, not a production payment platform. Its current payment, notification, and persistence behavior is simulated with console output.
