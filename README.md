@@ -71,7 +71,7 @@ The diagram represents the current Phase 1 code. Update it after material archit
 7. Completed: explore Repository and Unit of Work trade-offs.
 8. Completed: migrate focused tests to xUnit.
 9. Completed: document the architecture with ADRs and a code-backed diagram.
-10. Next: complete the Phase 1 final review, then begin Phase 2 when requested.
+10. Completed: the Phase 1 final review, ready to begin Phase 2.
 
 ## Curriculum context
 
