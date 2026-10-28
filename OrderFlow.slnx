@@ -1,3 +1,4 @@
 <Solution>
-  <Project Path="OrderFlow.csproj" />
+  <Project Path="OrderFlow.Test.xUnit/OrderFlow.Test.xUnit.csproj" Id="f02c8c6a-e2c4-4d78-9c36-2118583b1867" />
+  <Project Path="OrderFlow/OrderFlow.csproj" />
 </Solution>

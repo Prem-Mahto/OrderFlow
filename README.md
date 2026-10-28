@@ -1,44 +1,83 @@
 # OrderFlow v1
 
-OrderFlow is a C#/.NET learning project that starts with a deliberately simple order-processing console application and evolves through small architecture and design exercises.
+OrderFlow is a C#/.NET architecture-learning project. It began as a deliberately messy order-processing console application and was refactored in small, explainable steps during Phase 1.
 
-## Current checkpoint
+## Phase 1 status : Complete
 
-**Phase 0: Mindset & Self-Assessment** (`Phase-0-initial-code` branch).
+Phase 1 implementation is complete. It covers Advanced OOP, SOLID, and selected GoF patterns. The learner is completing the final review before beginning Phase 2.
 
-This phase focuses on architecture as decisions and trade-offs, quality attributes, and stakeholder needs. The hands-on exercise is to write a retroactive Architecture Decision Record (ADR) for a real decision, using **Context → Options Considered → Decision → Consequences**. See Phase 0 in `csharp-to-software-architect-curriculum.md` for the prompts.
+The original `OrderService` God class validated orders, applied discounts, selected and processed payments, sent notifications, and simulated persistence. It now coordinates a workflow through focused collaborators:
 
-## Starting application
+- `OrderValidator` validates an incoming order.
+- Discount strategies implement discount rules; `DiscountStrategyFactory` maps a discount code to the required strategy.
+- Payment strategies implement payment-method behavior; `PaymentStrategyFactory` maps a payment method to the required strategy.
+- `IPaymentGateway` separates payment strategies from external charging; `ConsolePaymentGateway` is the current safe implementation.
+- `IOrderRepository` abstracts persistence; `InMemoryOrderRepository` is the current implementation.
+- `IOrderObserver` receives a successful order-processing event.
+- `OrderConfirmationObserver` sends the confirmation notification.
+- `LoggingOrderDecorator` adds logging around notification delivery.
+- `LegacyEmailNotificationAdapter` adapts the existing email client to the notification boundary.
 
-The current code is the initial baseline for later refactoring:
+`OrderService` receives its core collaborators through constructor injection. `Program.cs` is the composition root where concrete implementations are selected and wired together.
 
-- `Program.Main` creates a sample `Order` and calls `OrderService`.
-- `OrderService` currently performs validation, applies discount rules, selects a payment method, prints a notification, and prints a SQL-like persistence statement in one method.
-- Payment, notification, and persistence are console messages. The project does not connect to a payment provider, email service, or database.
+## Patterns and trade-offs
 
-This intentionally concentrated design gives the later Single Responsibility Principle exercise a concrete starting point.
+| Pattern or principle | Use in OrderFlow |
+| --- | --- |
+| SRP | Validation, discounting, payment, persistence, and notification have focused responsibilities. |
+| DIP and constructor injection | `OrderService` depends on interfaces, keeping workflow policy separate from concrete implementations. |
+| Strategy | Discount and payment algorithms vary independently behind interfaces. |
+| Factory | Factories select the strategy for a discount code or payment method. A new mapping still requires a focused factory change. |
+| Observer | Registered observers are notified only after a successful order is persisted. |
+| Decorator | Logging is added around notification delivery without changing the wrapped observer. |
+| Adapter | The legacy email client is made usable through the current notification boundary. |
+| Repository | The current in-memory repository provides an explicit persistence boundary. |
 
-## Run locally
+`UnitOfWorkPracticeService` is an isolated practice exercise. A Unit of Work is not used in the main flow because the current in-memory repository has no real transaction boundary. See ADR-001 for the reasoning.
+
+## Tests
+
+Focused automated tests live in `OrderFlow.Test.xUnit`. They use xUnit and deterministic fakes instead of real payment providers, databases, networks, or email services.
+
+Run the application:
+
+```powershell
+dotnet run --project .\OrderFlow\OrderFlow.csproj
+```
+
+Run the tests:
+
+```powershell
+dotnet test .\OrderFlow.Test.xUnit\OrderFlow.Test.xUnit.csproj
+```
 
 Prerequisite: .NET 9 SDK.
 
-```powershell
-dotnet run
-```
+## Architecture documentation
 
-## Learning progression
+- [Phase 1 architecture diagram](architecture/orderflow-architecture-Phase-1.html)
+- [Architecture Decision Records](OrderFlow/ADR/)
 
-1. **Phase 0:** Practice architectural trade-off thinking and complete a retroactive ADR.
-2. **Phase 1:** Extract order-processing responsibilities using the Single Responsibility Principle.
-3. Apply constructor injection and Dependency Inversion Principle to `OrderService`.
-4. Use Strategy for payment-method and discount-rule variation.
-5. Introduce other patterns, tests, and architecture documentation as the exercises call for them.
+The diagram represents the current Phase 1 code. Update it after material architecture changes rather than using it as a proposed future design.
 
-The broader curriculum and long-term career plan are included here:
+## Learning sequence
+
+1. Completed: extract responsibilities using SRP.
+2. Completed: apply constructor injection and dependency inversion.
+3. Completed: use Strategy and Factory for discount rules.
+4. Completed: use Strategy and Factory for payment methods, with a payment gateway seam.
+5. Completed: introduce Observer for order lifecycle notifications.
+6. Completed: apply Decorator and Adapter to the notification requirement.
+7. Completed: explore Repository and Unit of Work trade-offs.
+8. Completed: migrate focused tests to xUnit.
+9. Completed: document the architecture with ADRs and a code-backed diagram.
+10. Next: complete the Phase 1 final review, then begin Phase 2 when requested.
+
+## Curriculum context
+
+The broader curriculum and long-term career plan are included in this repository:
 
 - `csharp-to-software-architect-curriculum.md`
 - `career-upskilling-master-plan-optimized.md`
 
-## Notes
-
-This is a learning system, not a production payment platform. Its current payment, notification, and persistence behavior is simulated with console output.
+This is a learning system, not a production payment platform. Payment, persistence, and notification integrations are intentionally simulated so the architecture can evolve safely and incrementally.
