@@ -55,7 +55,7 @@ Prerequisite: .NET 9 SDK.
 
 ## Architecture documentation
 
-- [Phase 1 architecture diagram](orderflow-architecture-Phase-1.html)
+- [Phase 1 architecture diagram](architecture/orderflow-architecture-Phase-1.html)
 - [Architecture Decision Records](OrderFlow/ADR/)
 
 The diagram represents the current Phase 1 code. Update it after material architecture changes rather than using it as a proposed future design.

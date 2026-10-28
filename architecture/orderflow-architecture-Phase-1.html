@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="generator" content="archify 3.2.0">
   <meta name="archify-reader-contract" content="declared-wide-v1">
-  <title>OrderFlow Runtime Architecture Diagram</title>
+  <title>OrderFlow Phase 1 Runtime Architecture Diagram</title>
   <script>
     // Resolve the theme before first paint so light-preference users don't
     // see a dark flash. The toolbar script below re-applies with UI state.
@@ -5193,17 +5193,17 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
            data-preset-badge-blueprint="BLUEPRINT / REV 01"
            data-preset-badge-editorial="EDITORIAL / FIELD NOTE">
         <div class="pulse-dot"></div>
-        <h1>OrderFlow Runtime Architecture</h1>
+        <h1>OrderFlow Phase 1 Runtime Architecture</h1>
       </div>
     </div>
 
-    <script id="archify-source-evidence-data" type="application/json">{"schemaVersion":1,"verified":true,"repository":{"url":"https://github.com/Prem-Mahto/OrderFlow","revision":"2411a0e7ae66e01245513216678dc393d775df65","shortRevision":"2411a0e","label":"Prem-Mahto/OrderFlow","href":"https://github.com/Prem-Mahto/OrderFlow/tree/2411a0e7ae66e01245513216678dc393d775df65"},"referenceCount":16,"nodes":{"dotnet-runtime":[{"path":"OrderFlow/OrderFlow.csproj","line":4,"endLine":7,"href":"https://github.com/Prem-Mahto/OrderFlow/blob/2411a0e7ae66e01245513216678dc393d775df65/OrderFlow/OrderFlow.csproj#L4-L7"},{"path":"OrderFlow/Payments/ConsolePaymentGateway.cs","line":12,"endLine":30,"href":"https://github.com/Prem-Mahto/OrderFlow/blob/2411a0e7ae66e01245513216678dc393d775df65/OrderFlow/Payments/ConsolePaymentGateway.cs#L12-L30"}],"program":[{"path":"OrderFlow/Program.cs","line":8,"endLine":31,"href":"https://github.com/Prem-Mahto/OrderFlow/blob/2411a0e7ae66e01245513216678dc393d775df65/OrderFlow/Program.cs#L8-L31"}],"order":[{"path":"OrderFlow/Orders/Order.cs","line":3,"endLine":14,"href":"https://github.com/Prem-Mahto/OrderFlow/blob/2411a0e7ae66e01245513216678dc393d775df65/OrderFlow/Orders/Order.cs#L3-L14"}],"order-service":[{"path":"OrderFlow/OrderService.cs","line":9,"endLine":47,"href":"https://github.com/Prem-Mahto/OrderFlow/blob/2411a0e7ae66e01245513216678dc393d775df65/OrderFlow/OrderService.cs#L9-L47"},{"path":"OrderFlow/OrderService.cs","line":59,"endLine":72,"href":"https://github.com/Prem-Mahto/OrderFlow/blob/2411a0e7ae66e01245513216678dc393d775df65/OrderFlow/OrderService.cs#L59-L72"}],"validator":[{"path":"OrderFlow/Orders/OrderValidator.cs","line":3,"endLine":24,"href":"https://github.com/Prem-Mahto/OrderFlow/blob/2411a0e7ae66e01245513216678dc393d775df65/OrderFlow/Orders/OrderValidator.cs#L3-L24"}],"discount-pipeline":[{"path":"OrderFlow/Discounts/DiscountStrategyFactory.cs","line":3,"endLine":20,"href":"https://github.com/Prem-Mahto/OrderFlow/blob/2411a0e7ae66e01245513216678dc393d775df65/OrderFlow/Discounts/DiscountStrategyFactory.cs#L3-L20"},{"path":"OrderFlow/Discounts/DiscountStrategies.cs","line":3,"endLine":27,"href":"https://github.com/Prem-Mahto/OrderFlow/blob/2411a0e7ae66e01245513216678dc393d775df65/OrderFlow/Discounts/DiscountStrategies.cs#L3-L27"}],"payment-pipeline":[{"path":"OrderFlow/Payments/PaymentStrategyFactory.cs","line":3,"endLine":27,"href":"https://github.com/Prem-Mahto/OrderFlow/blob/2411a0e7ae66e01245513216678dc393d775df65/OrderFlow/Payments/PaymentStrategyFactory.cs#L3-L27"},{"path":"OrderFlow/Payments/PaymentStrategies.cs","line":3,"endLine":46,"href":"https://github.com/Prem-Mahto/OrderFlow/blob/2411a0e7ae66e01245513216678dc393d775df65/OrderFlow/Payments/PaymentStrategies.cs#L3-L46"},{"path":"OrderFlow/Payments/ConsolePaymentGateway.cs","line":3,"endLine":31,"href":"https://github.com/Prem-Mahto/OrderFlow/blob/2411a0e7ae66e01245513216678dc393d775df65/OrderFlow/Payments/ConsolePaymentGateway.cs#L3-L31"}],"repository":[{"path":"OrderFlow/Persistence/OrderRepository.cs","line":5,"endLine":22,"href":"https://github.com/Prem-Mahto/OrderFlow/blob/2411a0e7ae66e01245513216678dc393d775df65/OrderFlow/Persistence/OrderRepository.cs#L5-L22"}],"notification-chain":[{"path":"OrderFlow/Program.cs","line":28,"endLine":30,"href":"https://github.com/Prem-Mahto/OrderFlow/blob/2411a0e7ae66e01245513216678dc393d775df65/OrderFlow/Program.cs#L28-L30"},{"path":"OrderFlow/Notifications/LoggingOrderDecorator.cs","line":5,"endLine":18,"href":"https://github.com/Prem-Mahto/OrderFlow/blob/2411a0e7ae66e01245513216678dc393d775df65/OrderFlow/Notifications/LoggingOrderDecorator.cs#L5-L18"},{"path":"OrderFlow/Notifications/LegacyEmailNotificationAdapter.cs","line":5,"endLine":31,"href":"https://github.com/Prem-Mahto/OrderFlow/blob/2411a0e7ae66e01245513216678dc393d775df65/OrderFlow/Notifications/LegacyEmailNotificationAdapter.cs#L5-L31"}]}}</script>
+    <script id="archify-source-evidence-data" type="application/json">{"schemaVersion":1,"verified":true,"repository":{"url":"https://github.com/Prem-Mahto/OrderFlow","revision":"74be1c55e9ec41da72c96a92278bbd559f0edacd","shortRevision":"74be1c5","label":"Prem-Mahto/OrderFlow","href":"https://github.com/Prem-Mahto/OrderFlow/tree/74be1c55e9ec41da72c96a92278bbd559f0edacd"},"referenceCount":16,"nodes":{"runtime":[{"path":"OrderFlow/OrderFlow.csproj","line":4,"endLine":7,"href":"https://github.com/Prem-Mahto/OrderFlow/blob/74be1c55e9ec41da72c96a92278bbd559f0edacd/OrderFlow/OrderFlow.csproj#L4-L7"},{"path":"OrderFlow/Payments/ConsolePaymentGateway.cs","line":12,"endLine":30,"href":"https://github.com/Prem-Mahto/OrderFlow/blob/74be1c55e9ec41da72c96a92278bbd559f0edacd/OrderFlow/Payments/ConsolePaymentGateway.cs#L12-L30"}],"program":[{"path":"OrderFlow/Program.cs","line":8,"endLine":31,"href":"https://github.com/Prem-Mahto/OrderFlow/blob/74be1c55e9ec41da72c96a92278bbd559f0edacd/OrderFlow/Program.cs#L8-L31"}],"order":[{"path":"OrderFlow/Orders/Order.cs","line":3,"endLine":14,"href":"https://github.com/Prem-Mahto/OrderFlow/blob/74be1c55e9ec41da72c96a92278bbd559f0edacd/OrderFlow/Orders/Order.cs#L3-L14"}],"order-service":[{"path":"OrderFlow/OrderService.cs","line":9,"endLine":47,"href":"https://github.com/Prem-Mahto/OrderFlow/blob/74be1c55e9ec41da72c96a92278bbd559f0edacd/OrderFlow/OrderService.cs#L9-L47"},{"path":"OrderFlow/OrderService.cs","line":59,"endLine":72,"href":"https://github.com/Prem-Mahto/OrderFlow/blob/74be1c55e9ec41da72c96a92278bbd559f0edacd/OrderFlow/OrderService.cs#L59-L72"}],"validator":[{"path":"OrderFlow/Orders/OrderValidator.cs","line":3,"endLine":24,"href":"https://github.com/Prem-Mahto/OrderFlow/blob/74be1c55e9ec41da72c96a92278bbd559f0edacd/OrderFlow/Orders/OrderValidator.cs#L3-L24"}],"discount-pipeline":[{"path":"OrderFlow/Discounts/DiscountStrategyFactory.cs","line":3,"endLine":20,"href":"https://github.com/Prem-Mahto/OrderFlow/blob/74be1c55e9ec41da72c96a92278bbd559f0edacd/OrderFlow/Discounts/DiscountStrategyFactory.cs#L3-L20"},{"path":"OrderFlow/Discounts/DiscountStrategies.cs","line":3,"endLine":27,"href":"https://github.com/Prem-Mahto/OrderFlow/blob/74be1c55e9ec41da72c96a92278bbd559f0edacd/OrderFlow/Discounts/DiscountStrategies.cs#L3-L27"}],"payment-pipeline":[{"path":"OrderFlow/Payments/PaymentStrategyFactory.cs","line":3,"endLine":27,"href":"https://github.com/Prem-Mahto/OrderFlow/blob/74be1c55e9ec41da72c96a92278bbd559f0edacd/OrderFlow/Payments/PaymentStrategyFactory.cs#L3-L27"},{"path":"OrderFlow/Payments/PaymentStrategies.cs","line":3,"endLine":46,"href":"https://github.com/Prem-Mahto/OrderFlow/blob/74be1c55e9ec41da72c96a92278bbd559f0edacd/OrderFlow/Payments/PaymentStrategies.cs#L3-L46"}],"payment-gateway":[{"path":"OrderFlow/Payments/ConsolePaymentGateway.cs","line":3,"endLine":31,"href":"https://github.com/Prem-Mahto/OrderFlow/blob/74be1c55e9ec41da72c96a92278bbd559f0edacd/OrderFlow/Payments/ConsolePaymentGateway.cs#L3-L31"}],"repository":[{"path":"OrderFlow/Persistence/OrderRepository.cs","line":5,"endLine":22,"href":"https://github.com/Prem-Mahto/OrderFlow/blob/74be1c55e9ec41da72c96a92278bbd559f0edacd/OrderFlow/Persistence/OrderRepository.cs#L5-L22"}],"notification-chain":[{"path":"OrderFlow/Program.cs","line":28,"endLine":30,"href":"https://github.com/Prem-Mahto/OrderFlow/blob/74be1c55e9ec41da72c96a92278bbd559f0edacd/OrderFlow/Program.cs#L28-L30"},{"path":"OrderFlow/Notifications/LoggingOrderDecorator.cs","line":5,"endLine":18,"href":"https://github.com/Prem-Mahto/OrderFlow/blob/74be1c55e9ec41da72c96a92278bbd559f0edacd/OrderFlow/Notifications/LoggingOrderDecorator.cs#L5-L18"},{"path":"OrderFlow/Notifications/LegacyEmailNotificationAdapter.cs","line":5,"endLine":31,"href":"https://github.com/Prem-Mahto/OrderFlow/blob/74be1c55e9ec41da72c96a92278bbd559f0edacd/OrderFlow/Notifications/LegacyEmailNotificationAdapter.cs#L5-L31"}]}}</script>
     <script id="archify-i18n-data" type="application/json">{"locale":"en","messages":{"viewer.kind.frontend":"Frontend","viewer.kind.backend":"Backend","viewer.kind.database":"Database","viewer.kind.cloud":"Cloud","viewer.kind.security":"Security","viewer.kind.messagebus":"Message bus","viewer.kind.external":"External","viewer.kind.neutral":"Neutral","viewer.kind.node":"Node","viewer.kind.start":"Start","viewer.kind.active":"Active","viewer.kind.waiting":"Waiting","viewer.kind.decision":"Decision","viewer.kind.success":"Success","viewer.kind.failure":"Failure","viewer.toolbar.actions":"Diagram actions","viewer.theme.toggle.title":"Toggle theme (T)","viewer.theme.toggle":"Toggle color theme","viewer.theme.dark":"Dark","viewer.theme.light":"Light","viewer.preset.choose.title":"Choose visual style (S cycles)","viewer.preset.choose":"Choose visual style","viewer.preset.style":"Style","viewer.preset.menu":"Visual style","viewer.preset.identity":"Visual identity","viewer.preset.cycles":"to cycle","viewer.preset.classic":"Classic","viewer.preset.classic.short":"Classic","viewer.preset.classic.hint":"Stable technical default","viewer.preset.flow":"Signal Flow","viewer.preset.flow.short":"Flow","viewer.preset.flow.hint":"Motion-forward presentation","viewer.preset.blueprint":"Blueprint","viewer.preset.blueprint.hint":"Engineering review","viewer.preset.editorial":"Editorial","viewer.preset.editorial.hint":"Publication and launch notes","viewer.preset.badge.signalFlow":"SIGNAL FLOW","viewer.preset.badge.blueprint":"BLUEPRINT / REV 01","viewer.preset.badge.editorial":"EDITORIAL / FIELD NOTE","viewer.preset.badge.editorialPlate":"ARCHIFY / PLATE 04","viewer.preset.current":"Visual style: {style}. Choose visual style","viewer.motion.live":"Live","viewer.motion.still":"Still","viewer.motion.pause":"Pause motion","viewer.motion.resume":"Resume motion","viewer.motion.reduced":"Motion paused by reduced-motion preference","viewer.motion.hidden":"Motion paused while this page is hidden","viewer.motion.yielding":"Pause motion; currently yielding to {owner}","viewer.motion.yielding.title":"Live preview enabled · yielding to {owner}","viewer.owner.route":"Route Probe","viewer.owner.lens":"Semantic Lens","viewer.owner.relationship":"Relationship Preview","viewer.owner.intent":"Intent Trace","viewer.owner.focus":"semantic focus","viewer.owner.legend":"legend preview","viewer.owner.reader":"reader interaction","viewer.present.enter":"Enter presentation stage","viewer.present.enter.title":"Presentation stage (F)","viewer.present.exit":"Exit presentation stage","viewer.present.exit.title":"Exit presentation stage (F or Escape)","viewer.present.present":"Present","viewer.present.exit.label":"Exit","viewer.export.button":"Export","viewer.export.button.title":"Export diagram (E)","viewer.export.diagram":"Export diagram","viewer.export.menu":"Export","viewer.export.subtitle":"Portable, clean outputs","viewer.export.share":"Share","viewer.export.shareCard":"Share Card","viewer.export.routeShareCard":"Route Share Card","viewer.export.reachShareCard":"Reach Share Card","viewer.export.copyDiagram":"Copy diagram","viewer.export.clipboardPng":"PNG to clipboard","viewer.export.raster":"Raster images","viewer.export.image":"Image","viewer.export.lossless":"Lossless image","viewer.export.compact":"Compact image","viewer.export.modern":"Modern image","viewer.export.vectorMotion":"Vector and motion","viewer.export.vectorMotion.heading":"Vector \u0026 motion","viewer.export.editable":"Editable vector","viewer.export.svg.auto":"SVG · Auto","viewer.export.svg.auto.hint":"Matches host theme","viewer.export.svg.light":"SVG · Light","viewer.export.svg.light.hint":"Always light","viewer.export.svg.dark":"SVG · Dark","viewer.export.svg.dark.hint":"Always dark","viewer.export.motion6s":"6s motion","viewer.export.unsupported":"Not supported by this browser","viewer.export.clipboardUnsupported":"Clipboard image write not supported by this browser","viewer.export.clipboardUnsupported.short":"Clipboard image write not supported in this browser.","viewer.export.motionUnavailable":"Motion capture unavailable in this browser","viewer.export.webmUnavailable":"WebM unavailable in this browser","viewer.export.failed":"Export failed: {message}","viewer.export.unknownVariant":"Unknown Share Card variant: {variant}","viewer.export.routeRequired":"Trace a route before exporting a Route Share Card","viewer.export.reachRequired":"Trace authored reach before exporting a Reach Share Card","viewer.export.unknown":"unknown","viewer.export.routeFailed":"Route Share Card export failed: {message}","viewer.export.reachFailed":"Reach Share Card export failed: {message}","viewer.export.copyFailed":"Copy failed: {message}","viewer.export.copiedPng":"Copied PNG to clipboard","viewer.export.downloadedRoute":"Downloaded Route Share Card","viewer.export.downloadedReach":"Downloaded Reach Share Card","viewer.export.downloadedWebm":"Downloaded WebM","viewer.export.recording":"Recording 6 seconds of motion…","viewer.export.card.routeSummary.one":"Path: {source} → {target} · {count} step","viewer.export.card.routeSummary.other":"Path: {source} → {target} · {count} steps","viewer.export.card.reachSummary":"Authored {direction} from {origin} · {nodes} · {links} · max {hops}","viewer.export.card.node.one":"{count} node","viewer.export.card.node.other":"{count} nodes","viewer.export.card.link.one":"{count} link","viewer.export.card.link.other":"{count} links","viewer.export.card.hop.one":"{count} hop","viewer.export.card.hop.other":"{count} hops","viewer.export.card.routeBadge":"ARCHIFY · ROUTE · {hops}","viewer.export.card.reachBadge":"ARCHIFY · {direction} REACH","viewer.export.direction.upstream":"Upstream","viewer.export.direction.downstream":"Downstream","viewer.export.error.canvasUnavailable":"Canvas unavailable for {label}","viewer.export.error.contextUnavailable":"2D canvas context unavailable for {label}","viewer.export.error.toBlobUnavailable":"canvas.toBlob unavailable for {label}","viewer.export.error.toBlobNull":"canvas.toBlob returned no data for {label}","viewer.export.error.variantsCombined":"Share Card variants cannot be combined","viewer.export.error.viewerState":"Share Card export could not remove temporary viewer state","viewer.export.error.routeState":"Route Card export could not preserve the resolved route safely","viewer.export.error.reachState":"Reach Card export could not preserve authored reach safely","viewer.export.error.webmRequirements":"WebM motion export requires a trace animation and browser MediaRecorder support","viewer.export.error.mediaRecorder":"MediaRecorder failed","viewer.export.error.emptyWebm":"MediaRecorder produced an empty WebM","viewer.export.error.webmBackground":"SVG background could not be loaded for WebM export","viewer.guide.title":"Explore this system","viewer.focus.selectedNodes":"{count} selected nodes","viewer.guide.eyebrow":"Diagram guide","viewer.guide.close":"Close diagram guide","viewer.guide.inspecting":"Inspecting compiled semantics","viewer.guide.actions":"Diagram exploration actions","viewer.guide.find":"Find any node","viewer.guide.find.hint":"Search labels, responsibilities, kinds, and stable IDs.","viewer.guide.route":"Trace a route","viewer.guide.route.aria":"Trace a directed route","viewer.guide.route.hint":"Ask how two semantic nodes connect in authored direction.","viewer.guide.map":"See the whole system","viewer.guide.map.hint":"Open Semantic Radar with a live viewport and stable nodes.","viewer.guide.lens":"Compare semantic kinds","viewer.guide.lens.hint":"Count roles, reveal their traffic, and compare direct authored links.","viewer.guide.present":"Enter Presentation Stage","viewer.guide.present.hint":"Give the live diagram the viewport without changing export.","viewer.guide.shortcuts":"Additional keyboard shortcuts","viewer.guide.shortcut.export":"Export","viewer.guide.shortcut.theme":"Theme","viewer.guide.shortcut.style":"Style","viewer.guide.shortcut.reset":"Reset","viewer.guide.shortcut.zoomIn":"Zoom in","viewer.guide.shortcut.zoomOut":"Zoom out","viewer.guide.shortcut.close":"Close","viewer.guide.credit":"Find Archify useful? A star on GitHub helps","viewer.guide.star":"Star","viewer.guide.facts":"{nodes} · {relationships}","viewer.guide.fact.node.one":"{count} semantic node","viewer.guide.fact.node.other":"{count} semantic nodes","viewer.guide.fact.relationship.one":"{count} relationship","viewer.guide.fact.relationship.other":"{count} relationships","viewer.guide.open":"Open diagram guide","viewer.finder.title":"Find a node","viewer.finder.close":"Close node finder","viewer.finder.placeholder":"Search labels or IDs","viewer.finder.search":"Search diagram nodes","viewer.finder.results":"Diagram nodes","viewer.finder.empty":"No matching nodes","viewer.finder.result.focus":"Focus {label}","viewer.finder.result.routeStart":"Choose {label} as route start","viewer.finder.result.routeTarget":"Choose {label} as route destination, {links}","viewer.finder.status.empty":"No matching nodes","viewer.finder.status.count.one":"{count} matching node","viewer.finder.status.count.other":"{count} matching nodes","viewer.finder.noun.nodes":"nodes","viewer.finder.link.one":"{count} link","viewer.finder.link.other":"{count} links","viewer.finder.result.focus.one":"Focus {label}, {count} related connection","viewer.finder.result.focus.other":"Focus {label}, {count} related connections","viewer.finder.status.filtered":"{visible} of {available} {noun}","viewer.finder.status.all":"{available} {noun}","viewer.passport.eyebrow":"Semantic passport","viewer.passport.metadata":"Node metadata","viewer.passport.evidence":"Verified source evidence","viewer.passport.verified":"Verified source","viewer.passport.verificationScope":"Verified against local Git at the pinned revision. Remote access has not been checked.","viewer.passport.reach":"Authored reach","viewer.passport.reach.trace":"Trace authored reachability","viewer.passport.upstream":"Upstream","viewer.passport.downstream":"Downstream","viewer.passport.upstream.trace":"Trace upstream authored reachability","viewer.passport.downstream.trace":"Trace downstream authored reachability","viewer.passport.close":"Close semantic passport","viewer.passport.move":"Move semantic passport. Drag, use arrow keys, or press Home to reset.","viewer.passport.copy":"Copy link","viewer.passport.copy.focus":"Copy link to focused node","viewer.passport.relations":"Relations","viewer.passport.relations.show":"Show connected relationships","viewer.passport.relations.hide":"Hide connected relationships","viewer.passport.relations.list":"Connected relationships","viewer.passport.copyRelation":"Copy relation","viewer.passport.copyNode":"Copy node","viewer.passport.copyPinned":"Copy link to pinned relationship","viewer.passport.copySource":"Copy link to source node","viewer.passport.copy.focused.success":"Focused node link copied","viewer.passport.copy.pinned.success":"Pinned relationship link copied","viewer.passport.copy.focused.failed":"Could not copy focused node link","viewer.passport.copy.pinned.failed":"Could not copy pinned relationship link","viewer.passport.relationship.none":"No connected relationships","viewer.passport.relationship.count.one":"{count} relation","viewer.passport.relationship.count.other":"{count} relations","viewer.passport.relationship.show.one":"Show {count} connected relationship","viewer.passport.relationship.show.other":"Show {count} connected relationships","viewer.passport.relationship.summary":"{out} outgoing · {in} incoming{loops}","viewer.passport.relationship.loops":" · {count} loop","viewer.passport.relationship.explorer":"Direct relationship explorer","viewer.passport.relationship.help":"Use arrow keys to explore relationships. Press Enter or Space to pin details; Escape clears.","viewer.passport.relationship.loopsBack":"loops back","viewer.passport.relationship.connectsTo":"connects to","viewer.passport.relationship.connectsFrom":"connects from","viewer.passport.relationship.pinned":"Pinned relationship · {from} → {to} · {label}","viewer.passport.relationship.inspect":"Inspect relationship {index} of {total}: {from} to {to}, {label}. Press Enter for details.","viewer.passport.relationship.group.out":"Outgoing","viewer.passport.relationship.group.in":"Incoming","viewer.passport.relationship.group.loop":"Self loops","viewer.passport.relationship.row":"{group}: {relationship}, {neighbor}","viewer.passport.relationship.direction.out":"OUT →","viewer.passport.relationship.direction.in":"← IN","viewer.passport.relationship.direction.loop":"LOOP","viewer.passport.sourceCount.one":"{count} verified source reference","viewer.passport.sourceCount.other":"{count} verified source references","viewer.passport.repository.open":"Open verified repository revision {revision}","viewer.passport.source.open":"Open verified source {path} at revision {revision}","viewer.passport.source.openLink":"Open ↗","viewer.passport.reach.upstream.one":"Trace {count} upstream authored node","viewer.passport.reach.upstream.other":"Trace {count} upstream authored nodes","viewer.passport.reach.downstream.one":"Trace {count} downstream authored node","viewer.passport.reach.downstream.other":"Trace {count} downstream authored nodes","viewer.passport.reach.noUpstream":"No upstream authored nodes","viewer.passport.reach.noDownstream":"No downstream authored nodes","viewer.passport.reach.status":"{direction} · {nodes} nodes · {links} links · max {hops} hops","viewer.route.eyebrow":"Path","viewer.route.start":"Click where the path starts","viewer.route.start.find":"Find start","viewer.route.start.find.aria":"Find a route start","viewer.route.copy":"Copy link","viewer.route.copy.aria":"Copy link to traced route","viewer.route.clear":"Clear","viewer.route.clear.aria":"Clear route probe","viewer.route.traced":"Path","viewer.route.pickTwo":"Click two nodes on the diagram","viewer.route.pickOne":"Click a node on the diagram","viewer.route.controls":"Route journey controls","viewer.route.previous":"Previous route position","viewer.route.play":"Play route journey","viewer.route.pause":"Pause route journey","viewer.route.replay":"Replay route journey","viewer.route.next":"Next route position","viewer.route.journey":"Journey","viewer.route.pause.label":"Pause","viewer.route.replay.label":"Replay","viewer.route.overview":"Overview","viewer.route.overview.aria":"Show complete route overview","viewer.route.instructions":"Click a start, then an end. Paths follow the arrows.","viewer.route.destination":"Where does the path from {label} end?","viewer.route.destination.find":"Find target","viewer.route.destination.find.aria":"Find a reachable route destination","viewer.route.differentDestination":"Choose a different destination","viewer.route.distinct":"Pick two different nodes.","viewer.route.unreachable":"Cannot reach {label} from here","viewer.route.unreachable.detail":"{target} cannot be reached from {source} along the arrows. Pick a highlighted node.","viewer.route.start.instructions":"Next, pick the end. Only nodes you can reach will light up.","viewer.route.copy.success":"Traced route link copied","viewer.route.copy.failed":"Could not copy traced route link","viewer.route.position":"Route position {index} of {total}: {label}","viewer.route.step":"Step {index} of {total} · {phase} · {label}","viewer.route.motionRequired":"Automatic journey requires Live motion","viewer.route.trigger.clear":"Clear traced route","viewer.route.overview.status":"{nodes} · {hops} · shortest path","viewer.route.overview.node.one":"{count} node","viewer.route.overview.node.other":"{count} nodes","viewer.route.overview.hop.one":"{count} step","viewer.route.overview.hop.other":"{count} steps","viewer.route.phase.playing":"Playing","viewer.route.phase.complete":"Complete","viewer.route.phase.inspecting":"Inspecting","viewer.route.destination.count.one":"{count} reachable node is highlighted. Click it.","viewer.route.destination.count.other":"{count} reachable nodes are highlighted. Click one.","viewer.route.noOutgoing":"No arrows lead out of this node. Clear it and pick another start.","viewer.route.result.title":"{source} to {target}","viewer.route.finder.source.title":"Choose route start","viewer.route.finder.source.placeholder":"Search route sources","viewer.route.finder.source.empty":"No matching route sources","viewer.route.finder.source.results":"Nodes that can start a route","viewer.route.finder.source.noun":"route sources","viewer.route.finder.source.badge":"start","viewer.route.finder.target.title":"Destination from {label}","viewer.route.finder.target.placeholder":"Search reachable destinations","viewer.route.finder.target.empty":"No matching reachable destinations","viewer.route.finder.target.results":"Reachable route destinations","viewer.route.finder.target.noun":"reachable destinations","viewer.route.hop.one":"{count} hop","viewer.route.hop.other":"{count} hops","viewer.lens.eyebrow":"Semantic lens","viewer.lens.title":"Compare system roles","viewer.lens.close":"Close semantic lens","viewer.lens.instruction":"Choose up to two semantic kinds. One reveals its real traffic; two compare only direct authored relationships.","viewer.lens.kinds":"Semantic kinds","viewer.lens.choose":"Choose a kind to inspect its nodes and touching relationships.","viewer.lens.copy":"Copy link to semantic lens","viewer.lens.clear":"Clear semantic lens","viewer.lens.open":"Open semantic lens","viewer.lens.openActive":"Open active semantic lens","viewer.lens.legend":"Semantic legend","viewer.lens.legend.inspect.one":"Inspect {label}, {count} node","viewer.lens.legend.inspect.other":"Inspect {label}, {count} nodes","viewer.lens.kind.count.one":"{label}, {count} node","viewer.lens.kind.count.other":"{label}, {count} nodes","viewer.lens.compare.one":"{first} → {second}: {forward} · {second} → {first}: {reverse} · {count} direct relationship","viewer.lens.compare.other":"{first} → {second}: {forward} · {second} → {first}: {reverse} · {count} direct relationships","viewer.lens.single":"{nodes} · {relationships} · connected peers remain visible","viewer.lens.node.one":"{count} {label} node","viewer.lens.node.other":"{count} {label} nodes","viewer.lens.relationship.one":"{count} touching relationship","viewer.lens.relationship.other":"{count} touching relationships","viewer.radar.title":"Semantic radar","viewer.radar.building":"Building overview","viewer.radar.openFull":"Open full semantic radar","viewer.radar.open":"Open radar","viewer.radar.close":"Close semantic radar","viewer.radar.surface":"Diagram overview. Click a node to focus it, or use arrow keys to pan.","viewer.radar.click":"Click node","viewer.radar.drag":"Drag to pan","viewer.radar.space":"Semantic radar needs more MAP space.","viewer.radar.nodes":"Semantic diagram radar nodes","viewer.radar.focus":"Focus {label} from Semantic Radar","viewer.radar.status":"{count} nodes · {viewport}","viewer.radar.fullMap":"{count} nodes · full map","viewer.radar.compacted":"Radar compacted to avoid covering the Semantic Passport or MAP controls.","viewer.radar.cancelWaiting":"Cancel semantic radar waiting for more MAP space","viewer.radar.needsSpace":"Semantic radar needs more visible MAP space","viewer.radar.viewport.full":"full map","viewer.radar.viewport.width":"{percent}% width","viewer.radar.viewport.scale":"{percent}% viewport","viewer.nav.controls":"Diagram view controls","viewer.nav.route":"Trace a directed route","viewer.nav.route.title":"Trace route (R)","viewer.nav.route.short":"ROUTE","viewer.nav.radar":"Open semantic radar","viewer.nav.radar.title":"Semantic radar (M)","viewer.nav.radar.short":"MAP","viewer.nav.lens":"Open semantic lens","viewer.nav.lens.title":"Semantic lens (L)","viewer.nav.lens.short":"LENS","viewer.nav.find":"Find a node","viewer.nav.find.title":"Find a node (/)","viewer.outline.title":"Node index","viewer.rail.show":"Notes \u0026 index","viewer.rail.controls":"Side panel","viewer.rail.collapse":"Collapse side panel","viewer.rail.bottom":"Move panel below the diagram","viewer.rail.right":"Move panel beside the diagram","viewer.nav.guide":"Open diagram guide","viewer.nav.guide.title":"Diagram guide (?)","viewer.nav.zoomOut":"Zoom out","viewer.nav.zoomOut.title":"Zoom out (-)","viewer.nav.reset":"Reset diagram view","viewer.nav.reset.title":"Reset view (0)","viewer.nav.read":"READ","viewer.nav.zoomIn":"Zoom in","viewer.nav.zoomIn.title":"Zoom in (+)","viewer.nav.camera":"{hint}. Reset diagram view","viewer.nav.camera.title":"{semantic}{hint} · reset view (0)","viewer.nav.camera.semantic":"Semantic camera active · ","viewer.nav.level.map":"MAP","viewer.nav.level.read":"READ","viewer.nav.level.full":"FULL","viewer.nav.level.auto":"AUTO","viewer.nav.detail.map":"Zoom in to reveal relationship labels and node context","viewer.nav.detail.read":"Zoom in again to reveal tags and annotations","viewer.nav.detail.full":"Full diagram detail","viewer.intent.summary":"{label}. {out} outgoing, {in} incoming{loops}. {total} connections. Press Enter for details.","viewer.intent.loops":", {count} self loop","viewer.common.copied":"Copied","viewer.common.copyFailed":"Copy failed","viewer.common.copyLink":"Copy link","viewer.common.clear":"Clear","viewer.common.close":"Close"}}</script>
     <!-- Main Diagram -->
     <div class="diagram-container" data-detail-level="read"
          data-preset-badge-editorial-plate="ARCHIFY / PLATE 04">
-      <svg viewBox="0 0 974 564" role="img" lang="en" aria-labelledby="archify-diagram-title archify-diagram-description" data-animation="trace" data-preset="classic" data-quality-profile="showcase" data-node-ui="" data-reader-fit="intrinsic-height" data-reader-min-text="7.5" data-reader-primary-text="14">
-        <title id="archify-diagram-title">OrderFlow Runtime Architecture</title>
+      <svg viewBox="0 0 1304 582" role="img" lang="en" aria-labelledby="archify-diagram-title archify-diagram-description" data-animation="trace" data-preset="classic" data-quality-profile="showcase" data-node-ui="" data-reader-fit="intrinsic-height" data-reader-min-text="7.5" data-reader-primary-text="14">
+        <title id="archify-diagram-title">OrderFlow Phase 1 Runtime Architecture</title>
         <desc id="archify-diagram-description">An architecture diagram generated by Archify.</desc>
         <!-- Definitions -->
         <defs>
@@ -5249,201 +5249,209 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         <rect width="100%" height="100%" fill="url(#grid)" />
 
         <!-- Boundaries (behind everything) -->
-        <rect data-graph-role="structural-frame" data-composition-frame-kind="region" data-composition-frame-id="0" data-composition-frame-label="OrderFlow console process" x="226" y="56" width="708" height="440" rx="12" class="c-region" stroke-width="1"/>
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="region" data-composition-frame-id="0" data-composition-frame-label="OrderFlow application process" x="226" y="16" width="1038" height="498" rx="12" class="c-region" stroke-width="1"/>
 
         <!-- Connection paths (before components for correct z-order) -->
-        <g data-graph-role="automatic-crossover" style="--step:0">
-          <path data-graph-role="automatic-crossover-underlay" d="M 210 114 L 226 114 Q 234 114 234 122 L 234 164 Q 234 172 242 172 L 306.95 172 Q 314.95 172 314.95 164 L 314.95 148" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="dotnet-runtime" data-edge-to="program" data-edge-label="hosts net9.0 console app" data-edge-key="0" data-edge-id="runtime-hosts-program" data-composition-points="210,114;234,114;234,172;314.95,172;314.95,148" data-composition-crossover="halo" data-composition-independent="true" d="M 210 114 L 226 114 Q 234 114 234 122 L 234 164 Q 234 172 242 172 L 306.95 172 Q 314.95 172 314.95 164 L 314.95 148" class="a-default" data-animate="edge" style="--step:0" stroke-width="1.5" marker-end="url(#arrowhead)"/>
-        </g>
+        <path data-edge-from="runtime" data-edge-to="program" data-edge-label="runs" data-edge-key="0" data-edge-id="runtime-hosts-program" data-composition-points="190,72;250,72" d="M 190 72 L 250 72" class="a-default" data-animate="edge" style="--step:0" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         <g data-graph-role="automatic-crossover" style="--step:1">
-          <path data-graph-role="automatic-crossover-underlay" d="M 330 148 L 330 230" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="program" data-edge-to="order" data-edge-label="creates sample" data-edge-key="1" data-edge-id="program-creates-order" data-composition-points="330,148;330,230" data-composition-crossover="halo" data-composition-independent="true" d="M 330 148 L 330 230" class="a-emphasis" data-animate="edge" style="--step:1" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 330 104 L 330 230" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="program" data-edge-to="order" data-edge-label="creates sample" data-edge-key="1" data-edge-id="program-creates-order" data-composition-points="330,104;330,230" data-composition-crossover="halo" data-composition-independent="true" d="M 330 104 L 330 230" class="a-emphasis" data-animate="edge" style="--step:1" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:2">
-          <path data-graph-role="automatic-crossover-underlay" d="M 394 148 L 394 238 Q 394 246 402 246 L 480 246" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="program" data-edge-to="order-service" data-edge-label="composes dependencies + invokes" data-edge-key="2" data-edge-id="program-invokes-service" data-composition-points="394,148;394,246;480,246" data-composition-crossover="halo" data-composition-independent="true" d="M 394 148 L 394 238 Q 394 246 402 246 L 480 246" class="a-emphasis" data-animate="edge" style="--step:2" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 394 104 L 394 238 Q 394 246 402 246 L 460 246" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="program" data-edge-to="order-service" data-edge-label="invokes ProcessOrder(order)" data-edge-key="2" data-edge-id="program-calls-service" data-composition-points="394,104;394,246;460,246" data-composition-crossover="halo" data-composition-independent="true" d="M 394 104 L 394 238 Q 394 246 402 246 L 460 246" class="a-emphasis" data-animate="edge" style="--step:2" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:3">
-          <path data-graph-role="automatic-crossover-underlay" d="M 320 298 L 320 314 Q 320 322 328 322 L 448 322 Q 456 322 456 314 L 456 276.1 Q 456 268.1 464 268.1 L 480 268.1" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="order" data-edge-to="order-service" data-edge-label="ProcessOrder argument" data-edge-key="3" data-edge-id="order-payload" data-composition-points="320,298;320,322;456,322;456,268.1;480,268.1" data-composition-crossover="halo" data-composition-independent="true" d="M 320 298 L 320 314 Q 320 322 328 322 L 448 322 Q 456 322 456 314 L 456 276.1 Q 456 268.1 464 268.1 L 480 268.1" class="a-emphasis" data-animate="edge" style="--step:3" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 550 230 L 550 104" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="order-service" data-edge-to="validator" data-edge-label="validates" data-edge-key="3" data-edge-id="service-validates" data-composition-points="550,230;550,104" data-composition-crossover="halo" data-composition-independent="true" d="M 550 230 L 550 104" class="a-default" data-animate="edge" style="--step:3" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:4">
-          <path data-graph-role="automatic-crossover-underlay" d="M 552.45 302 L 552.45 318 Q 552.45 326 544.45 326 L 343 326 Q 335 326 335 334 L 335 400" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="order-service" data-edge-to="validator" data-edge-label="validates" data-edge-key="4" data-edge-id="service-validates" data-composition-points="552.45,302;552.45,326;335,326;335,400" data-composition-crossover="halo" data-composition-independent="true" d="M 552.45 302 L 552.45 318 Q 552.45 326 544.45 326 L 343 326 Q 335 326 335 334 L 335 400" class="a-default" data-animate="edge" style="--step:4" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 460 284 L 427 284 Q 419 284 419 292 L 419 400" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="order-service" data-edge-to="discount-pipeline" data-edge-label="selects + applies" data-edge-key="4" data-edge-id="service-discounts" data-composition-points="460,284;419,284;419,400" data-composition-crossover="halo" data-composition-independent="true" d="M 460 284 L 427 284 Q 419 284 419 292 L 419 400" class="a-default" data-animate="edge" style="--step:4" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:5">
-          <path data-graph-role="automatic-crossover-underlay" d="M 567.5 230 L 567.5 152" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="order-service" data-edge-to="discount-pipeline" data-edge-label="selects + applies" data-edge-key="5" data-edge-id="service-discount" data-composition-points="567.5,230;567.5,152" data-composition-crossover="halo" data-composition-independent="true" d="M 567.5 230 L 567.5 152" class="a-default" data-animate="edge" style="--step:5" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 640 258 L 770 258" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="order-service" data-edge-to="payment-pipeline" data-edge-label="selects strategy" data-edge-key="5" data-edge-id="service-payment" data-composition-points="640,258;770,258" data-composition-crossover="halo" data-composition-independent="true" d="M 640 258 L 770 258" class="a-default" data-animate="edge" style="--step:5" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:6">
-          <path data-graph-role="automatic-crossover-underlay" d="M 581.5 230 L 581.5 214 Q 581.5 206 589.5 206 L 678 206 Q 686 206 686 214 L 686 258 Q 686 266 694 266 L 710 266" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="order-service" data-edge-to="payment-pipeline" data-edge-label="selects + processes" data-edge-key="6" data-edge-id="service-payment" data-composition-points="581.5,230;581.5,206;686,206;686,266;710,266" data-composition-crossover="halo" data-composition-independent="true" d="M 581.5 230 L 581.5 214 Q 581.5 206 589.5 206 L 678 206 Q 686 206 686 214 L 686 258 Q 686 266 694 266 L 710 266" class="a-default" data-animate="edge" style="--step:6" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 970 266 L 1060 266" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="payment-pipeline" data-edge-to="payment-gateway" data-edge-label="charges" data-edge-key="6" data-edge-id="strategy-charges" data-composition-points="970,266;1060,266" data-composition-crossover="halo" data-composition-independent="true" d="M 970 266 L 1060 266" class="a-default" data-animate="edge" style="--step:6" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:7">
-          <path data-graph-role="automatic-crossover-underlay" d="M 567.5 302 L 567.5 400" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="order-service" data-edge-to="repository" data-edge-label="saves after payment succeeds" data-edge-key="7" data-edge-id="service-persists" data-composition-points="567.5,302;567.5,400" data-composition-crossover="halo" data-composition-independent="true" d="M 567.5 302 L 567.5 400" class="a-emphasis" data-animate="edge" style="--step:7" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 550 300 L 550 420" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="order-service" data-edge-to="repository" data-edge-label="saves order on success" data-edge-key="7" data-edge-id="service-persists" data-composition-points="550,300;550,420" data-composition-crossover="halo" data-composition-independent="true" d="M 550 300 L 550 420" class="a-emphasis" data-animate="edge" style="--step:7" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:8">
-          <path data-graph-role="automatic-crossover-underlay" d="M 655 273 L 674.5 273 Q 682.5 273 682.5 281 L 682.5 430 Q 682.5 438 690.5 438 L 710 438" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="order-service" data-edge-to="notification-chain" data-edge-label="notifies after save" data-edge-key="8" data-edge-id="service-notifies" data-composition-points="655,273;682.5,273;682.5,438;710,438" data-composition-crossover="halo" data-composition-independent="true" d="M 655 273 L 674.5 273 Q 682.5 273 682.5 281 L 682.5 430 Q 682.5 438 690.5 438 L 710 438" class="a-default" data-animate="edge" style="--step:8" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 640 284 L 698 284 Q 706 284 706 292 L 706 420" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="order-service" data-edge-to="notification-chain" data-edge-label="notifies after save" data-edge-key="8" data-edge-id="service-notifies" data-composition-points="640,284;706,284;706,420" data-composition-crossover="halo" data-composition-independent="true" d="M 640 284 L 698 284 Q 706 284 706 292 L 706 420" class="a-default" data-animate="edge" style="--step:8" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
 
         <!-- Components -->
-        <g id="node-dotnet-runtime" data-node-id="dotnet-runtime" data-node-label=".NET 9 runtime" tabindex="0" role="button" aria-label="Focus .NET 9 runtime, BCL + console host, Architecture component" aria-pressed="false" data-node-kind="external" data-node-sublabel="BCL + console host" data-node-context="Architecture component">
+        <g id="node-runtime" data-node-id="runtime" data-node-label=".NET 9 runtime" tabindex="0" role="button" aria-label="Focus .NET 9 runtime, BCL + console host, Architecture component" aria-pressed="false" data-node-kind="external" data-node-sublabel="BCL + console host" data-node-context="Architecture component">
           <title>.NET 9 runtime · BCL + console host · Architecture component</title>
-          <rect x="40" y="80" width="170" height="68" rx="8" class="c-mask"/>
-          <rect x="40" y="80" width="170" height="68" rx="8" class="c-external" data-animate="node" style="--step:0" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(46 86) scale(0.6875)">
+          <rect x="40" y="40" width="150" height="64" rx="8" class="c-mask"/>
+          <rect x="40" y="40" width="150" height="64" rx="8" class="c-external" data-animate="node" style="--step:0" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(46 46) scale(0.6875)">
             <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
             <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="125" y="112" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">.NET 9 runtime</text>
-        <text data-detail="context" x="125" y="128" class="t-muted" font-size="9" text-anchor="middle">BCL + console host</text>
+          <text data-node-label="" data-detail-anchor="" x="115" y="70" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">.NET 9 runtime</text>
+        <text data-detail="context" x="115" y="86" class="t-muted" font-size="9" text-anchor="middle">BCL + console host</text>
         </g>
 
-        <g id="node-program" data-node-id="program" data-node-label="Program.Main" tabindex="0" role="button" aria-label="Focus Program.Main, composition root, OrderFlow console process" aria-pressed="false" data-node-kind="backend" data-node-sublabel="composition root" data-node-context="OrderFlow console process">
-          <title>Program.Main · composition root · OrderFlow console process</title>
-          <rect x="250" y="80" width="160" height="68" rx="8" class="c-mask"/>
-          <rect x="250" y="80" width="160" height="68" rx="8" class="c-backend" data-animate="node" style="--step:1" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(256 86) scale(0.6875)">
+        <g id="node-program" data-node-id="program" data-node-label="Program.Main" tabindex="0" role="button" aria-label="Focus Program.Main, composition root, OrderFlow application process" aria-pressed="false" data-node-kind="backend" data-node-sublabel="composition root" data-node-context="OrderFlow application process">
+          <title>Program.Main · composition root · OrderFlow application process</title>
+          <rect x="250" y="40" width="160" height="64" rx="8" class="c-mask"/>
+          <rect x="250" y="40" width="160" height="64" rx="8" class="c-backend" data-animate="node" style="--step:1" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(256 46) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="330" y="112" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Program.Main</text>
-        <text data-detail="context" x="330" y="128" class="t-muted" font-size="9" text-anchor="middle">composition root</text>
+          <text data-node-label="" data-detail-anchor="" x="330" y="70" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Program.Main</text>
+        <text data-detail="context" x="330" y="86" class="t-muted" font-size="9" text-anchor="middle">composition root</text>
         </g>
 
-        <g id="node-order" data-node-id="order" data-node-label="Order" tabindex="0" role="button" aria-label="Focus Order, mutable order payload, OrderFlow console process" aria-pressed="false" data-node-kind="backend" data-node-sublabel="mutable order payload" data-node-context="OrderFlow console process">
-          <title>Order · mutable order payload · OrderFlow console process</title>
-          <rect x="250" y="230" width="140" height="68" rx="8" class="c-mask"/>
-          <rect x="250" y="230" width="140" height="68" rx="8" class="c-backend" data-animate="node" style="--step:2" stroke-width="1.5"/>
+        <g id="node-order" data-node-id="order" data-node-label="Order" tabindex="0" role="button" aria-label="Focus Order, order payload, OrderFlow application process" aria-pressed="false" data-node-kind="backend" data-node-sublabel="order payload" data-node-context="OrderFlow application process">
+          <title>Order · order payload · OrderFlow application process</title>
+          <rect x="250" y="230" width="140" height="64" rx="8" class="c-mask"/>
+          <rect x="250" y="230" width="140" height="64" rx="8" class="c-backend" data-animate="node" style="--step:2" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(256 236) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="320" y="262" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Order</text>
-        <text data-detail="context" x="320" y="278" class="t-muted" font-size="9" text-anchor="middle">mutable order payload</text>
+          <text data-node-label="" data-detail-anchor="" x="320" y="260" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Order</text>
+        <text data-detail="context" x="320" y="276" class="t-muted" font-size="9" text-anchor="middle">order payload</text>
         </g>
 
-        <g id="node-order-service" data-node-id="order-service" data-node-label="OrderService" tabindex="0" role="button" aria-label="Focus OrderService, workflow coordinator, OrderFlow console process" aria-pressed="false" data-node-kind="backend" data-node-sublabel="workflow coordinator" data-node-context="OrderFlow console process">
-          <title>OrderService · workflow coordinator · OrderFlow console process</title>
-          <rect x="480" y="230" width="175" height="72" rx="8" class="c-mask"/>
-          <rect x="480" y="230" width="175" height="72" rx="8" class="c-backend" data-animate="node" style="--step:3" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(486 236) scale(0.6875)">
+        <g id="node-order-service" data-node-id="order-service" data-node-label="OrderService" tabindex="0" role="button" aria-label="Focus OrderService, workflow coordinator, OrderFlow application process" aria-pressed="false" data-node-kind="backend" data-node-sublabel="workflow coordinator" data-node-context="OrderFlow application process">
+          <title>OrderService · workflow coordinator · OrderFlow application process</title>
+          <rect x="460" y="230" width="180" height="70" rx="8" class="c-mask"/>
+          <rect x="460" y="230" width="180" height="70" rx="8" class="c-backend" data-animate="node" style="--step:3" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(466 236) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="567.5" y="264" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">OrderService</text>
-        <text data-detail="context" x="567.5" y="280" class="t-muted" font-size="9" text-anchor="middle">workflow coordinator</text>
+          <text data-node-label="" data-detail-anchor="" x="550" y="263" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">OrderService</text>
+        <text data-detail="context" x="550" y="279" class="t-muted" font-size="9" text-anchor="middle">workflow coordinator</text>
         </g>
 
-        <g id="node-validator" data-node-id="validator" data-node-label="OrderValidator" tabindex="0" role="button" aria-label="Focus OrderValidator, input invariants, OrderFlow console process" aria-pressed="false" data-node-kind="backend" data-node-sublabel="input invariants" data-node-context="OrderFlow console process">
-          <title>OrderValidator · input invariants · OrderFlow console process</title>
-          <rect x="250" y="400" width="170" height="64" rx="8" class="c-mask"/>
-          <rect x="250" y="400" width="170" height="64" rx="8" class="c-backend" data-animate="node" style="--step:5" stroke-width="1.5"/>
+        <g id="node-validator" data-node-id="validator" data-node-label="OrderValidator" tabindex="0" role="button" aria-label="Focus OrderValidator, input invariants, OrderFlow application process" aria-pressed="false" data-node-kind="backend" data-node-sublabel="input invariants" data-node-context="OrderFlow application process">
+          <title>OrderValidator · input invariants · OrderFlow application process</title>
+          <rect x="460" y="40" width="165" height="64" rx="8" class="c-mask"/>
+          <rect x="460" y="40" width="165" height="64" rx="8" class="c-backend" data-animate="node" style="--step:4" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(466 46) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="542.5" y="70" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">OrderValidator</text>
+        <text data-detail="context" x="542.5" y="86" class="t-muted" font-size="9" text-anchor="middle">input invariants</text>
+        </g>
+
+        <g id="node-discount-pipeline" data-node-id="discount-pipeline" data-node-label="Discount selection" tabindex="0" role="button" aria-label="Focus Discount selection, factory + strategies, OrderFlow application process" aria-pressed="false" data-node-kind="backend" data-node-sublabel="factory + strategies" data-node-context="OrderFlow application process">
+          <title>Discount selection · factory + strategies · OrderFlow application process</title>
+          <rect x="250" y="400" width="185" height="70" rx="8" class="c-mask"/>
+          <rect x="250" y="400" width="185" height="70" rx="8" class="c-backend" data-animate="node" style="--step:5" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(256 406) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="335" y="430" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">OrderValidator</text>
-        <text data-detail="context" x="335" y="446" class="t-muted" font-size="9" text-anchor="middle">input invariants</text>
+          <text data-node-label="" data-detail-anchor="" x="342.5" y="433" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Discount selection</text>
+        <text data-detail="context" x="342.5" y="449" class="t-muted" font-size="9" text-anchor="middle">factory + strategies</text>
         </g>
 
-        <g id="node-discount-pipeline" data-node-id="discount-pipeline" data-node-label="Discount selection" tabindex="0" role="button" aria-label="Focus Discount selection, factory + strategies, OrderFlow console process" aria-pressed="false" data-node-kind="backend" data-node-sublabel="factory + strategies" data-node-context="OrderFlow console process">
-          <title>Discount selection · factory + strategies · OrderFlow console process</title>
-          <rect x="480" y="80" width="190" height="72" rx="8" class="c-mask"/>
-          <rect x="480" y="80" width="190" height="72" rx="8" class="c-backend" data-animate="node" style="--step:6" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(486 86) scale(0.6875)">
+        <g id="node-payment-pipeline" data-node-id="payment-pipeline" data-node-label="Payment selection" tabindex="0" role="button" aria-label="Focus Payment selection, factory + strategies, OrderFlow application process" aria-pressed="false" data-node-kind="backend" data-node-sublabel="factory + strategies" data-node-context="OrderFlow application process">
+          <title>Payment selection · factory + strategies · OrderFlow application process</title>
+          <rect x="770" y="230" width="200" height="72" rx="8" class="c-mask"/>
+          <rect x="770" y="230" width="200" height="72" rx="8" class="c-backend" data-animate="node" style="--step:6" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(776 236) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="575" y="114" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Discount selection</text>
-        <text data-detail="context" x="575" y="130" class="t-muted" font-size="9" text-anchor="middle">factory + strategies</text>
+          <text data-node-label="" data-detail-anchor="" x="870" y="264" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Payment selection</text>
+        <text data-detail="context" x="870" y="280" class="t-muted" font-size="9" text-anchor="middle">factory + strategies</text>
         </g>
 
-        <g id="node-payment-pipeline" data-node-id="payment-pipeline" data-node-label="Payment execution" tabindex="0" role="button" aria-label="Focus Payment execution, factory + strategies + console gateway, OrderFlow console process" aria-pressed="false" data-node-kind="backend" data-node-sublabel="factory + strategies + console gateway" data-node-context="OrderFlow console process">
-          <title>Payment execution · factory + strategies + console gateway · OrderFlow console process</title>
-          <rect x="710" y="230" width="195" height="72" rx="8" class="c-mask"/>
-          <rect x="710" y="230" width="195" height="72" rx="8" class="c-backend" data-animate="node" style="--step:7" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(716 236) scale(0.6875)">
+        <g id="node-payment-gateway" data-node-id="payment-gateway" data-node-label="ConsolePaymentGateway" tabindex="0" role="button" aria-label="Focus ConsolePaymentGateway, local safe stub, OrderFlow application process" aria-pressed="false" data-node-kind="backend" data-node-sublabel="local safe stub" data-node-context="OrderFlow application process">
+          <title>ConsolePaymentGateway · local safe stub · OrderFlow application process</title>
+          <rect x="1060" y="230" width="180" height="68" rx="8" class="c-mask"/>
+          <rect x="1060" y="230" width="180" height="68" rx="8" class="c-backend" data-animate="node" style="--step:7" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(1066 236) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="807.5" y="264" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Payment execution</text>
-        <text data-detail="context" x="807.5" y="280" class="t-muted" font-size="8.2" text-anchor="middle">factory + strategies + console gateway</text>
+          <text data-node-label="" data-detail-anchor="" x="1150" y="262" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">ConsolePaymentGateway</text>
+        <text data-detail="context" x="1150" y="278" class="t-muted" font-size="9" text-anchor="middle">local safe stub</text>
         </g>
 
-        <g id="node-repository" data-node-id="repository" data-node-label="InMemoryOrderRepository" tabindex="0" role="button" aria-label="Focus InMemoryOrderRepository, process-local List&lt;Order&gt;, OrderFlow console process" aria-pressed="false" data-node-kind="backend" data-node-sublabel="process-local List&lt;Order&gt;" data-node-context="OrderFlow console process">
-          <title>InMemoryOrderRepository · process-local List&lt;Order&gt; · OrderFlow console process</title>
-          <rect x="480" y="400" width="185" height="68" rx="8" class="c-mask"/>
-          <rect x="480" y="400" width="185" height="68" rx="8" class="c-backend" data-animate="node" style="--step:8" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(486 406) scale(0.6875)">
+        <g id="node-repository" data-node-id="repository" data-node-label="InMemoryOrderRepository" tabindex="0" role="button" aria-label="Focus InMemoryOrderRepository, process-local List&lt;Order&gt;, OrderFlow application process" aria-pressed="false" data-node-kind="backend" data-node-sublabel="process-local List&lt;Order&gt;" data-node-context="OrderFlow application process">
+          <title>InMemoryOrderRepository · process-local List&lt;Order&gt; · OrderFlow application process</title>
+          <rect x="460" y="420" width="190" height="68" rx="8" class="c-mask"/>
+          <rect x="460" y="420" width="190" height="68" rx="8" class="c-backend" data-animate="node" style="--step:8" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(466 426) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="572.5" y="432" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">InMemoryOrderRepository</text>
-        <text data-detail="context" x="572.5" y="448" class="t-muted" font-size="9" text-anchor="middle">process-local List&lt;Order&gt;</text>
+          <text data-node-label="" data-detail-anchor="" x="555" y="452" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">InMemoryOrderRepository</text>
+        <text data-detail="context" x="555" y="468" class="t-muted" font-size="9" text-anchor="middle">process-local List&lt;Order&gt;</text>
         </g>
 
-        <g id="node-notification-chain" data-node-id="notification-chain" data-node-label="Order notification chain" tabindex="0" role="button" aria-label="Focus Order notification chain, Observer + Decorator + Adapter, OrderFlow console process" aria-pressed="false" data-node-kind="backend" data-node-sublabel="Observer + Decorator + Adapter" data-node-context="OrderFlow console process">
-          <title>Order notification chain · Observer + Decorator + Adapter · OrderFlow console process</title>
-          <rect x="710" y="400" width="200" height="76" rx="8" class="c-mask"/>
-          <rect x="710" y="400" width="200" height="76" rx="8" class="c-backend" data-animate="node" style="--step:9" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(716 406) scale(0.6875)">
+        <g id="node-notification-chain" data-node-id="notification-chain" data-node-label="Order notification chain" tabindex="0" role="button" aria-label="Focus Order notification chain, Observer + Decorator + Adapter, OrderFlow application process" aria-pressed="false" data-node-kind="backend" data-node-sublabel="Observer + Decorator + Adapter" data-node-context="OrderFlow application process">
+          <title>Order notification chain · Observer + Decorator + Adapter · OrderFlow application process</title>
+          <rect x="690" y="420" width="200" height="74" rx="8" class="c-mask"/>
+          <rect x="690" y="420" width="200" height="74" rx="8" class="c-backend" data-animate="node" style="--step:9" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(696 426) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="810" y="436" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Order notification chain</text>
-        <text data-detail="context" x="810" y="452" class="t-muted" font-size="9" text-anchor="middle">Observer + Decorator + Adapter</text>
+          <text data-node-label="" data-detail-anchor="" x="790" y="455" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Order notification chain</text>
+        <text data-detail="context" x="790" y="471" class="t-muted" font-size="9" text-anchor="middle">Observer + Decorator + Adapter</text>
         </g>
 
         <!-- Connection labels -->
-        <g data-detail="context" data-edge-from="dotnet-runtime" data-edge-to="program" data-edge-label="hosts net9.0 console app" data-edge-key="0" data-edge-id="runtime-hosts-program">
-          <rect x="102.80000000000001" y="150.5" width="125.19999999999999" height="14" rx="3" class="c-mask"/>
-          <text x="165.4" y="160.5" class="t-edge-default" font-size="8" text-anchor="middle">hosts net9.0 console app</text>
+        <g data-detail="context" data-edge-from="runtime" data-edge-to="program" data-edge-label="runs" data-edge-key="0" data-edge-id="runtime-hosts-program">
+          <rect x="205" y="52" width="30" height="14" rx="3" class="c-mask"/>
+          <text x="220" y="62" class="t-edge-default" font-size="8" text-anchor="middle">runs</text>
         </g>
         <g data-detail="context" data-edge-from="program" data-edge-to="order" data-edge-label="creates sample" data-edge-key="1" data-edge-id="program-creates-order">
-          <rect x="246.79999999999998" y="182" width="77.2" height="14" rx="3" class="c-mask"/>
-          <text x="285.4" y="192" class="t-edge-emphasis" font-size="8" text-anchor="middle">creates sample</text>
+          <rect x="246.79999999999998" y="160" width="77.2" height="14" rx="3" class="c-mask"/>
+          <text x="285.4" y="170" class="t-edge-emphasis" font-size="8" text-anchor="middle">creates sample</text>
         </g>
-        <g data-detail="context" data-edge-from="program" data-edge-to="order-service" data-edge-label="composes dependencies + invokes" data-edge-key="2" data-edge-id="program-invokes-service">
-          <rect x="400" y="190" width="158.79999999999998" height="14" rx="3" class="c-mask"/>
-          <text x="479.4" y="200" class="t-edge-emphasis" font-size="8" text-anchor="middle">composes dependencies + invokes</text>
+        <g data-detail="context" data-edge-from="program" data-edge-to="order-service" data-edge-label="invokes ProcessOrder(order)" data-edge-key="2" data-edge-id="program-calls-service">
+          <rect x="400" y="168" width="139.6" height="14" rx="3" class="c-mask"/>
+          <text x="469.8" y="178" class="t-edge-emphasis" font-size="8" text-anchor="middle">invokes ProcessOrder(order)</text>
         </g>
-        <g data-detail="context" data-edge-from="order" data-edge-to="order-service" data-edge-label="ProcessOrder argument" data-edge-key="3" data-edge-id="order-payload">
-          <rect x="298.6" y="302" width="110.8" height="14" rx="3" class="c-mask"/>
-          <text x="354" y="312" class="t-edge-emphasis" font-size="8" text-anchor="middle">ProcessOrder argument</text>
+        <g data-detail="context" data-edge-from="order-service" data-edge-to="validator" data-edge-label="validates" data-edge-key="3" data-edge-id="service-validates">
+          <rect x="523.4" y="210" width="53.199999999999996" height="14" rx="3" class="c-mask"/>
+          <text x="550" y="220" class="t-edge-default" font-size="8" text-anchor="middle">validates</text>
         </g>
-        <g data-detail="context" data-edge-from="order-service" data-edge-to="validator" data-edge-label="validates" data-edge-key="4" data-edge-id="service-validates">
-          <rect x="417.125" y="336" width="53.199999999999996" height="14" rx="3" class="c-mask"/>
-          <text x="443.725" y="346" class="t-edge-default" font-size="8" text-anchor="middle">validates</text>
+        <g data-detail="context" data-edge-from="order-service" data-edge-to="discount-pipeline" data-edge-label="selects + applies" data-edge-key="4" data-edge-id="service-discounts">
+          <rect x="373.2" y="322" width="91.6" height="14" rx="3" class="c-mask"/>
+          <text x="419" y="332" class="t-edge-default" font-size="8" text-anchor="middle">selects + applies</text>
         </g>
-        <g data-detail="context" data-edge-from="order-service" data-edge-to="discount-pipeline" data-edge-label="selects + applies" data-edge-key="5" data-edge-id="service-discount">
-          <rect x="469.90000000000003" y="164.5" width="91.6" height="14" rx="3" class="c-mask"/>
-          <text x="515.7" y="174.5" class="t-edge-default" font-size="8" text-anchor="middle">selects + applies</text>
+        <g data-detail="context" data-edge-from="order-service" data-edge-to="payment-pipeline" data-edge-label="selects strategy" data-edge-key="5" data-edge-id="service-payment">
+          <rect x="661.6" y="238" width="86.8" height="14" rx="3" class="c-mask"/>
+          <text x="705" y="248" class="t-edge-default" font-size="8" text-anchor="middle">selects strategy</text>
         </g>
-        <g data-detail="context" data-edge-from="order-service" data-edge-to="payment-pipeline" data-edge-label="selects + processes" data-edge-key="6" data-edge-id="service-payment">
-          <rect x="583.15" y="186" width="101.2" height="14" rx="3" class="c-mask"/>
-          <text x="633.75" y="196" class="t-edge-default" font-size="8" text-anchor="middle">selects + processes</text>
+        <g data-detail="context" data-edge-from="payment-pipeline" data-edge-to="payment-gateway" data-edge-label="charges" data-edge-key="6" data-edge-id="strategy-charges">
+          <rect x="993.2" y="246" width="43.6" height="14" rx="3" class="c-mask"/>
+          <text x="1015" y="256" class="t-edge-default" font-size="8" text-anchor="middle">charges</text>
         </g>
-        <g data-detail="context" data-edge-from="order-service" data-edge-to="repository" data-edge-label="saves after payment succeeds" data-edge-key="7" data-edge-id="service-persists">
-          <rect x="417.1" y="368.5" width="144.4" height="14" rx="3" class="c-mask"/>
-          <text x="489.3" y="378.5" class="t-edge-emphasis" font-size="8" text-anchor="middle">saves after payment succeeds</text>
+        <g data-detail="context" data-edge-from="order-service" data-edge-to="repository" data-edge-label="saves order on success" data-edge-key="7" data-edge-id="service-persists">
+          <rect x="428.4" y="353" width="115.6" height="14" rx="3" class="c-mask"/>
+          <text x="486.2" y="363" class="t-edge-emphasis" font-size="8" text-anchor="middle">saves order on success</text>
         </g>
         <g data-detail="context" data-edge-from="order-service" data-edge-to="notification-chain" data-edge-label="notifies after save" data-edge-key="8" data-edge-id="service-notifies">
-          <rect x="631.9" y="335.5" width="101.2" height="14" rx="3" class="c-mask"/>
-          <text x="682.5" y="345.5" class="t-edge-default" font-size="8" text-anchor="middle">notifies after save</text>
+          <rect x="655.4" y="332" width="101.2" height="14" rx="3" class="c-mask"/>
+          <text x="706" y="342" class="t-edge-default" font-size="8" text-anchor="middle">notifies after save</text>
         </g>
 
         <!-- Boundary labels (foreground masks keep routes out of titles) -->
-        <g data-graph-role="structural-frame-label" data-composition-frame-id="0" data-composition-frame-kind="region" data-composition-frame-label="OrderFlow console process">
-          <rect data-graph-role="structural-frame-label-mask" x="230" y="60" width="145" height="16" rx="3" class="c-mask"/>
-          <text data-boundary-label="" x="234" y="73" class="t-cloud" font-size="9" font-weight="600">OrderFlow console process</text>
+        <g data-graph-role="structural-frame-label" data-composition-frame-id="0" data-composition-frame-kind="region" data-composition-frame-label="OrderFlow application process">
+          <rect data-graph-role="structural-frame-label-mask" x="230" y="20" width="166.6" height="16" rx="3" class="c-mask"/>
+          <text data-boundary-label="" x="234" y="33" class="t-cloud" font-size="9" font-weight="600">OrderFlow application process</text>
         </g>
 
         <!-- Legend -->
         <g data-legend="" data-legend-bridge="">
-          <text x="40" y="528" class="t-primary" font-size="12" font-weight="650">Legend</text>
-          <g data-legend-semantic-kind="backend" data-legend-kind="backend" data-legend-label="Backend" data-legend-x="40" data-legend-baseline="548" data-legend-width="87">
-            <rect x="40" y="539" width="16" height="10" rx="2.5" class="c-backend" stroke-width="1"/>
-            <text x="62" y="548" class="t-muted" font-size="10" font-weight="500">Backend</text>
+          <text x="40" y="546" class="t-primary" font-size="12" font-weight="650">Legend</text>
+          <g data-legend-semantic-kind="backend" data-legend-kind="backend" data-legend-label="Backend" data-legend-x="40" data-legend-baseline="566" data-legend-width="87">
+            <rect x="40" y="557" width="16" height="10" rx="2.5" class="c-backend" stroke-width="1"/>
+            <text x="62" y="566" class="t-muted" font-size="10" font-weight="500">Backend</text>
           </g>
-          <g data-legend-semantic-kind="external" data-legend-kind="external" data-legend-label="External" data-legend-x="149" data-legend-baseline="548" data-legend-width="93">
-            <rect x="149" y="539" width="16" height="10" rx="2.5" class="c-external" stroke-width="1"/>
-            <text x="171" y="548" class="t-muted" font-size="10" font-weight="500">External</text>
+          <g data-legend-semantic-kind="external" data-legend-kind="external" data-legend-label="External" data-legend-x="149" data-legend-baseline="566" data-legend-width="93">
+            <rect x="149" y="557" width="16" height="10" rx="2.5" class="c-external" stroke-width="1"/>
+            <text x="171" y="566" class="t-muted" font-size="10" font-weight="500">External</text>
           </g>
         </g>
       </svg>
@@ -5629,42 +5637,43 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
           <h3>Primary order path</h3>
         </div>
         <ul>
-          <li>Program.Main builds the sample Order and its concrete collaborators, registers an observer, then calls ProcessOrder.</li>
-          <li>OrderService validates, applies the selected discount, processes payment, saves only after payment succeeds, notifies observers, and prints completion.</li>
-          <li>A failed payment throws before repository persistence and observer notification.</li>
+          <li>Program.Main creates an Order, wires concrete collaborators, registers the notification observer, and calls ProcessOrder.</li>
+          <li>OrderService validates, applies the selected discount, processes payment, saves after payment succeeds, notifies observers, and prints completion.</li>
+          <li>A failed payment throws before persistence or observer notification; observer failures are caught and written to the console.</li>
         </ul>
       </div>
 
       <div class="card">
         <div class="card-header">
           <div class="card-dot amber"></div>
-          <h3>Strategy choices</h3>
+          <h3>Variation points</h3>
         </div>
         <ul>
-          <li>Discount codes SAVE10, SAVE20, and VIP select 10%, 20%, and 30% strategies; unknown codes select no discount.</li>
-          <li>CARD, PAYPAL, and UPI select payment strategies. Unsupported methods throw.</li>
+          <li>SAVE10, SAVE20, and VIP select 10%, 20%, and 30% discounts; other codes select no discount.</li>
+          <li>CARD, PAYPAL, and UPI select payment strategies. The selected strategy delegates to IPaymentGateway.</li>
         </ul>
       </div>
 
       <div class="card">
         <div class="card-header">
           <div class="card-dot rose"></div>
-          <h3>Effects and boundaries</h3>
+          <h3>External dependencies and effects</h3>
         </div>
         <ul>
-          <li>The executable is one .NET 9 process. Payment and legacy email adapters write to System.Console; no live gateway, email service, database, or network endpoint is configured.</li>
-          <li>Order persistence is an in-memory List&lt;Order&gt; and lasts only for the process lifetime. The UnitOfWorkPracticeService sample is not wired into Program.Main.</li>
+          <li>The application targets .NET 9 and uses the console API. It has no live payment, email, database, or network integration.</li>
+          <li>ConsolePaymentGateway prints a charge message and returns true. The legacy email client also prints to the console; repository state is an in-memory List&lt;Order&gt; for the process lifetime.</li>
         </ul>
       </div>
 
       <div class="card">
         <div class="card-header">
           <div class="card-dot violet"></div>
-          <h3>Notification wiring</h3>
+          <h3>Scope notes</h3>
         </div>
         <ul>
-          <li>Program registers LoggingOrderDecorator around LegacyEmailNotificationAdapter, which delegates to the local LegacyEmailClient console stub.</li>
-          <li>OrderConfirmationObserver is defined but is not registered by Program.Main. Current README and AGENTS.md still describe Observer as the next pass, although this branch already wires it.</li>
+          <li>Program registers LoggingOrderDecorator around LegacyEmailNotificationAdapter and the local LegacyEmailClient. OrderConfirmationObserver is defined but not registered by Program.Main.</li>
+          <li>UnitOfWorkPracticeService is an isolated exercise, not part of the main order path; ADR-001 records why Unit of Work is not used here.</li>
+          <li>The xUnit project and its NuGet packages are test-only dependencies, separate from the executable runtime.</li>
         </ul>
       </div>
     </div>
