@@ -51,7 +51,7 @@ Run the tests:
 dotnet test .\OrderFlow.Test.xUnit\OrderFlow.Test.xUnit.csproj
 ```
 
-Prerequisite: .NET 9 SDK.
+Prerequisite: .NET 10 SDK.
 
 ## Architecture documentation
 
