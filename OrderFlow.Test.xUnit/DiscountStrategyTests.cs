@@ -1,9 +1,8 @@
-using OrderFlow.Discount;
-using OrderFlow.Orders;
+using OrderFlow.Application;
+using OrderFlow.Domain;
 using OrderFlow.Test.xUnit.Mocks;
 
 namespace OrderFlow.Test.xUnit;
-
 public class DiscountStrategyTests
 {
     [Fact]
@@ -52,7 +51,8 @@ public class DiscountStrategyTests
         var service = new OrderService(validator,
             new DiscountStrategyFactory(),
             new MockPaymentFactory(),
-            repository);
+            repository,
+            new MockApplicationLogger());
 
         // Act
         service.ProcessOrder(order);
@@ -82,7 +82,8 @@ public class DiscountStrategyTests
         var service = new OrderService(validator,
             new DiscountStrategyFactory(),
             new MockPaymentFactory(),
-            repository);
+            repository,
+            new MockApplicationLogger());
 
         // Act
         service.ProcessOrder(order);

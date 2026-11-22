@@ -1,4 +1,4 @@
-namespace OrderFlow.Persistence;
+namespace OrderFlow.Application;
 
 public class PracticeOrder
 {
@@ -67,10 +67,16 @@ public class PracticeOrderRepository : IPracticeOrderRepository
 
 public class UnitOfWork
 {
-    public UnitOfWork(IPracticeInventoryRepository inventoryRepository, IPracticeOrderRepository orderRepository)
+    private readonly IApplicationLogger _logger;
+
+    public UnitOfWork(
+        IPracticeInventoryRepository inventoryRepository,
+        IPracticeOrderRepository orderRepository,
+        IApplicationLogger logger)
     {
         InventoryRepository = inventoryRepository;
         OrderRepository = orderRepository;
+        _logger = logger;
     }
     public IPracticeInventoryRepository InventoryRepository { get; }
     public IPracticeOrderRepository OrderRepository { get; }
@@ -90,9 +96,9 @@ public class UnitOfWork
             return true;
         }
 
-        catch
+        catch (Exception exception)
         {
-            Console.WriteLine($"Order {order.Id} failed");
+            _logger.LogWarning($"Order {order.Id} failed: {exception.Message}");
             if (orderAdded) { OrderRepository.Remove(order); }
             if (stockReserved) { InventoryRepository.ReleaseStock(order.ItemId, order.Quantity); }
             return false;

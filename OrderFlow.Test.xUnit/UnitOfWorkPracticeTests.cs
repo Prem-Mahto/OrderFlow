@@ -1,4 +1,6 @@
-using OrderFlow.Persistence;
+using OrderFlow.Application;
+
+using OrderFlow.Test.xUnit.Mocks;
 
 namespace OrderFlow.Test.xUnit;
 public class UnitOfWorkPracticeTests
@@ -6,7 +8,7 @@ public class UnitOfWorkPracticeTests
     [Fact]
     public void OrderProcessed_WithSufficientStock_ReducesStockAndAddsOrder()
     {
-        var unitOfWork = new UnitOfWork(new PracticeInventoryRepository(), new PracticeOrderRepository());
+        var unitOfWork = new UnitOfWork(new PracticeInventoryRepository(), new PracticeOrderRepository(), new MockApplicationLogger());
 
         var service = new PracticeOrderService(unitOfWork);
 
@@ -31,7 +33,7 @@ public class UnitOfWorkPracticeTests
     [Fact]
     public void OrderProcessed_WithInsufficientStock_DoesNotReduceStockAndDoesNotAddOrder()
     {
-        var unitOfWork = new UnitOfWork(new PracticeInventoryRepository(), new PracticeOrderRepository());
+        var unitOfWork = new UnitOfWork(new PracticeInventoryRepository(), new PracticeOrderRepository(), new MockApplicationLogger());
         var service = new PracticeOrderService(unitOfWork);
 
         var order = new PracticeOrder

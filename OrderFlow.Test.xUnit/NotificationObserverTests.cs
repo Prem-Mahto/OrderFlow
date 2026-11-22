@@ -1,8 +1,8 @@
-using OrderFlow.Orders;
+using OrderFlow.Application;
+using OrderFlow.Domain;
 using OrderFlow.Test.xUnit.Mocks;
 
 namespace OrderFlow.Test.xUnit;
-
 public class NotificationObserverTests
 {
     [Fact]
@@ -22,10 +22,12 @@ public class NotificationObserverTests
         var discountFactory = new MockDiscountStrategyFactory();
         var paymentFactory = new MockPaymentFactory();
         var failingObserver = new MockFailingOrderObserver();
+        var logger = new MockApplicationLogger();
         var service = new OrderService(validator,
             discountFactory,
             paymentFactory,
-            repository);
+            repository,
+            logger);
 
         service.RegisterObserver(failingObserver);
         // Act
@@ -38,5 +40,6 @@ public class NotificationObserverTests
         Assert.Equal(1, repository.CallCount);
         Assert.Equal(order, repository.LastSavedOrder);
         Assert.Equal(1, failingObserver.CallCount);
+        Assert.Single(logger.Warnings);
     }
 }

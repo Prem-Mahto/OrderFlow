@@ -1,4 +1,4 @@
-namespace OrderFlow.Payments;
+namespace OrderFlow.Application;
 
 public interface IPaymentStrategy
 {

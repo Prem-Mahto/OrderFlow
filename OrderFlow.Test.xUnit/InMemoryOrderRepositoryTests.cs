@@ -1,9 +1,9 @@
-using OrderFlow.Orders;
-using OrderFlow.Persistence;
+using OrderFlow.Application;
+using OrderFlow.Domain;
+using OrderFlow.Infrastructure;
 using OrderFlow.Test.xUnit.Mocks;
 
 namespace OrderFlow.Test.xUnit;
-
 public class InMemoryOrderRepositoryTests
 {
     [Fact]
@@ -27,7 +27,8 @@ public class InMemoryOrderRepositoryTests
         var service = new OrderService(validator,
             discountFactory,
             paymentFactory,
-            repository);
+            repository,
+            new MockApplicationLogger());
 
         // Act
         service.ProcessOrder(order);

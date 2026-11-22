@@ -1,8 +1,7 @@
-using OrderFlow.Notifications;
-using OrderFlow.Orders;
+using OrderFlow.Application;
+using OrderFlow.Domain;
 
 namespace OrderFlow.Test.xUnit.Mocks;
-
 public class MockFailingOrderObserver : IOrderObserver
 {
     public int CallCount { get; private set; }

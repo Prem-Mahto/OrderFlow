@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OrderFlow Project References</title>
+<style>
+  body { font-family: system-ui, sans-serif; background: #fafafa; color: #222; margin: 2rem; }
+  main { max-width: 860px; margin: 0 auto; }
+  h1 { font-size: 1.35rem; }
+  p { color: #555; }
+  .group { border: 1px solid #ddd; border-radius: 10px; padding: 1rem 1.2rem; margin: 1rem 0; background: white; }
+  .row { display: flex; align-items: center; gap: .65rem; margin: .55rem 0; flex-wrap: wrap; }
+  .layer { padding: .45rem .8rem; border-radius: 7px; font-weight: 600; min-width: 12rem; text-align: center; }
+  .presentation { background: #cfe8ff; }
+  .application { background: #ffe8c2; }
+  .infrastructure { background: #dcedd0; }
+  .domain { background: #f3d1e0; }
+  .tests { background: #e6e6e6; }
+  .arrow { font-size: 1.1rem; }
+  .note { color: #666; font-size: .88rem; }
+  @media (max-width: 560px) { body { margin: 1rem; } .layer { min-width: 9rem; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>OrderFlow project references</h1>
+  <p>Each arrow means “has a direct project reference to.” This is the current .NET project graph, not a proposed future design.</p>
+
+  <section class="group" aria-label="Runtime project references">
+    <h2>Runtime projects</h2>
+    <div class="row"><div class="layer presentation">OrderFlow.Presentation</div><span class="arrow">→</span><div class="layer application">OrderFlow.Application</div></div>
+    <div class="row"><div class="layer presentation">OrderFlow.Presentation</div><span class="arrow">→</span><div class="layer domain">OrderFlow.Domain</div></div>
+    <div class="row"><div class="layer presentation">OrderFlow.Presentation</div><span class="arrow">→</span><div class="layer infrastructure">OrderFlow.Infrastructure</div><span class="note">composition root wires concrete implementations</span></div>
+    <div class="row"><div class="layer infrastructure">OrderFlow.Infrastructure</div><span class="arrow">→</span><div class="layer application">OrderFlow.Application</div><span class="note">implements application-owned ports</span></div>
+    <div class="row"><div class="layer infrastructure">OrderFlow.Infrastructure</div><span class="arrow">→</span><div class="layer domain">OrderFlow.Domain</div><span class="note">uses domain types directly</span></div>
+    <div class="row"><div class="layer application">OrderFlow.Application</div><span class="arrow">→</span><div class="layer domain">OrderFlow.Domain</div></div>
+    <div class="row"><div class="layer domain">OrderFlow.Domain</div><span class="arrow">→</span><span class="note">no outer-project references</span></div>
+  </section>
+
+  <section class="group" aria-label="Test project references">
+    <h2>Test-time references</h2>
+    <div class="row"><div class="layer tests">OrderFlow.Test.xUnit</div><span class="arrow">→</span><div class="layer application">OrderFlow.Application</div></div>
+    <div class="row"><div class="layer tests">OrderFlow.Test.xUnit</div><span class="arrow">→</span><div class="layer domain">OrderFlow.Domain</div></div>
+    <div class="row"><div class="layer tests">OrderFlow.Test.xUnit</div><span class="arrow">→</span><div class="layer infrastructure">OrderFlow.Infrastructure</div><span class="note">test project; not a runtime component</span></div>
+  </section>
+</main>
+</body>
+</html>

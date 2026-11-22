@@ -1,10 +1,8 @@
-namespace OrderFlow.Test.xUnit;
-
-using OrderFlow.Discount;
-using OrderFlow.Orders;
-using OrderFlow.Payments;
+using OrderFlow.Application;
+using OrderFlow.Domain;
 using OrderFlow.Test.xUnit.Mocks;
 
+namespace OrderFlow.Test.xUnit;
 public class PaymentStrategyTests
 {
     [Fact]
@@ -105,7 +103,7 @@ public class PaymentStrategyTests
         var repository = new MockOrderRepository();
         var observer = new MockOrderObserver();
 
-        var orderService = new OrderService(validator, discountFactory, paymentFactory, repository);
+        var orderService = new OrderService(validator, discountFactory, paymentFactory, repository, new MockApplicationLogger());
         orderService.RegisterObserver(observer);
 
         var order = new Order

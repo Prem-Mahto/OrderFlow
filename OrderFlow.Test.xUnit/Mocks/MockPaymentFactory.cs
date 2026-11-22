@@ -1,7 +1,6 @@
-using OrderFlow.Payments;
+using OrderFlow.Application;
 
 namespace OrderFlow.Test.xUnit.Mocks;
-
 internal class MockPaymentFactory :IPaymentStrategyFactory
 {
     public MockPaymentStrategy? LastCreatedStrategy { get; private set; }

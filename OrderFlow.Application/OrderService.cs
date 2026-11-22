@@ -1,28 +1,27 @@
-using OrderFlow.Discount;
-using OrderFlow.Notifications;
-using OrderFlow.Orders;
-using OrderFlow.Payments;
-using OrderFlow.Persistence;
+using OrderFlow.Domain;
 
-namespace OrderFlow;
+namespace OrderFlow.Application;
 
 public class OrderService
 {
     public OrderService(IOrderValidator validator,
         IDiscountStrategyFactory discountStrategyFactory,
         IPaymentStrategyFactory paymentStrategyFactory,
-        IOrderRepository orderRepository)
+        IOrderRepository orderRepository,
+        IApplicationLogger logger)
     {
         _validator = validator;
         _discountStrategyFactory = discountStrategyFactory;
         _paymentStrategyFactory = paymentStrategyFactory;
         _orderRepository = orderRepository;
+        _logger = logger;
     }
 
     private readonly IOrderValidator _validator;
     private readonly IDiscountStrategyFactory _discountStrategyFactory;
     private readonly IPaymentStrategyFactory _paymentStrategyFactory;
     private readonly IOrderRepository _orderRepository;
+    private readonly IApplicationLogger _logger;
     private List<IOrderObserver> _observers = new List<IOrderObserver>();
 
     public void ProcessOrder(Order order)
@@ -43,7 +42,6 @@ public class OrderService
 
         NotifyObservers(order);
 
-        Console.WriteLine("Order processed.");
     }
 
     public void RegisterObserver(IOrderObserver observer)
@@ -66,7 +64,7 @@ public class OrderService
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Observer {observer.GetType().Name} failed to process order: {ex.Message}");
+                _logger.LogWarning($"Observer {observer.GetType().Name} failed to process order: {ex.Message}");
             }
         }
     }

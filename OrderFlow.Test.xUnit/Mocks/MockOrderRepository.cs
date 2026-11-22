@@ -1,7 +1,7 @@
-using OrderFlow.Orders;
-using OrderFlow.Persistence;
-namespace OrderFlow.Test.xUnit.Mocks;
+using OrderFlow.Application;
+using OrderFlow.Domain;
 
+namespace OrderFlow.Test.xUnit.Mocks;
 public class MockOrderRepository : IOrderRepository
 {
     public int CallCount { get; private set; }

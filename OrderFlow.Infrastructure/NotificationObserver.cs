@@ -1,11 +1,7 @@
-using OrderFlow.Orders;
+using OrderFlow.Application;
+using OrderFlow.Domain;
 
-namespace OrderFlow.Notifications;
-
-public interface IOrderObserver
-{
-    void OnOrderProcessed(Order order);
-}
+namespace OrderFlow.Infrastructure;
 
 public class OrderConfirmationObserver : IOrderObserver
 {

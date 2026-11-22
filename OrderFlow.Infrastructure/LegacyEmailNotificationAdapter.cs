@@ -1,6 +1,7 @@
-using OrderFlow.Orders;
+using OrderFlow.Application;
+using OrderFlow.Domain;
 
-namespace OrderFlow.Notifications;
+namespace OrderFlow.Infrastructure;
 
 public class LegacyEmailNotificationAdapter : IOrderObserver
 {

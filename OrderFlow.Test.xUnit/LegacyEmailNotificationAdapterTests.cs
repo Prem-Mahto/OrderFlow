@@ -1,9 +1,9 @@
-using OrderFlow.Notifications;
-using OrderFlow.Orders;
+using OrderFlow.Application;
+using OrderFlow.Domain;
+using OrderFlow.Infrastructure;
 using OrderFlow.Test.xUnit.Mocks;
 
 namespace OrderFlow.Test.xUnit;
-
 public class LegacyEmailNotificationAdapterTests
 {
     [Fact]
@@ -27,7 +27,8 @@ public class LegacyEmailNotificationAdapterTests
         var service = new OrderService(validator,
             discountFactory,
             paymentFactory,
-            repository);
+            repository,
+            new MockApplicationLogger());
 
         service.RegisterObserver(new LegacyEmailNotificationAdapter(mockLegacyEmailClient));
         // Act

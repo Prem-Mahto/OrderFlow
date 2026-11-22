@@ -1,7 +1,5 @@
-using OrderFlow.Discount;
-
+using OrderFlow.Domain;
 namespace OrderFlow.Test.xUnit.Mocks;
-
 
 public class MockDiscountStrategy : IDiscountStrategy
 {

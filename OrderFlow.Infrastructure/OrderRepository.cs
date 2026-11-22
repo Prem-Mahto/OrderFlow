@@ -1,12 +1,7 @@
-using OrderFlow.Orders;
+using OrderFlow.Application;
+using OrderFlow.Domain;
 
-namespace OrderFlow.Persistence;
-
-public interface IOrderRepository
-{
-    void Add(Order order);
-    Order? GetById(int orderId);
-}
+namespace OrderFlow.Infrastructure;
 
 public class InMemoryOrderRepository : IOrderRepository
 {

@@ -1,4 +1,4 @@
-namespace OrderFlow.Discount;
+namespace OrderFlow.Domain;
 
 public interface IDiscountStrategy
 {
