@@ -54,17 +54,20 @@ Projects target .NET 10. The repository's `global.json` selects Microsoft.Testin
 
 ## Architecture documentation
 
+- [Phase backlog](BACKLOG.md)
 - [Phase 2 architecture overview](architecture/Phase%202%20pass%201%20architecture%20diagram.html)
 - [Phase 2 dependency direction](architecture/Phase%202-%20pass%201%20dependency%20direction.html)
+- [Phase 2 architecture style comparison](architecture/phase-2-architecture-style-comparison.md)
 - [Phase 1 architecture diagram](architecture/orderflow-architecture-Phase-1.html)
-- [Architecture Decision Records](OrderFlow/ADR/)
+- [Architecture Decision Records](ADR/)
 
 The Phase 2 overview illustrates the main order-processing components. The dependency-direction diagram shows direct project references. Both should be updated when the implementation changes materially.
 
 ## Phase 2 progress
 
 - Pass 1: separate Presentation, Application, Domain, and Infrastructure projects; direct dependency direction is inward.
-- Next: compare Layered, Clean, Onion, and Hexagonal Architecture, then continue with the aggregate, Ordering/Inventory contexts, and Saga exercises.
+- Pass 2: compare Layered, Clean, Onion, and Hexagonal Architecture and record the chosen organization and dependency rule in ADR-004.
+- Next: model Order as an aggregate and enforce its invariants inside the Domain boundary.
 - CQRS and Event Sourcing are decision topics; implement them only if OrderFlow demonstrates a need.
 
 The broader learning plans are `csharp-to-software-architect-curriculum.md` and `career-upskilling-master-plan-optimized.md`. Payment, persistence, and notification integrations remain simulated; no real credentials, providers, or cloud services are required.

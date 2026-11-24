@@ -25,7 +25,7 @@ The Phase 2 project responsibilities are:
 
 The intended direct project references are Presentation → Application/Domain/Infrastructure, Infrastructure → Application/Domain, and Application → Domain. Domain has no outer-project reference. Tests have test-time references only. Preserve the current inward direction unless a later learning exercise explicitly changes it.
 
-Phase 1 ADRs remain in `OrderFlow/ADR/`. Architecture diagrams are in `architecture/`; the Phase 2 component overview and project dependency diagram should reflect current code, not proposed future structure. The old `OrderFlow/OrderFlow.csproj` should not be treated as the active console entry point; `OrderFlow.Presentation/OrderFlow.Presentation.csproj` is the entry point.
+Architecture Decision Records are in `ADR/`. Architecture diagrams and the Phase 2 style comparison are in `architecture/`; they should reflect current code, not proposed future structure. The old `OrderFlow/OrderFlow.csproj` is no longer part of the solution; `OrderFlow.Presentation/OrderFlow.Presentation.csproj` is the console entry point.
 
 ## Mentoring approach
 
@@ -56,8 +56,9 @@ Preserve this order unless the learner explicitly changes it:
 9. Completed: architecture review, ADRs, and a current-state diagram.
 10. Completed: Phase 1 final review; the learner explicitly started Phase 2.
 11. Completed: establish Presentation, Application, Domain, and Infrastructure projects with inward project references.
-12. Next: compare Layered, Clean, Onion, and Hexagonal Architecture; then apply tactical DDD, Ordering/Inventory contexts, an in-memory event, and an orchestration Saga.
-13. Later in Phase 2: evaluate CQRS, Event Sourcing, and monolith options; do not add infrastructure or patterns without a demonstrated need.
+12. Completed: compare Layered, Clean, Onion, and Hexagonal Architecture and record the Phase 2 dependency decision in ADR-004.
+13. Next: model `Order` as an aggregate and enforce its invariants inside Domain; then define Ordering/Inventory contexts, an in-memory event, and an orchestration Saga.
+14. Later in Phase 2: evaluate CQRS, Event Sourcing, and monolith options; do not add infrastructure or patterns without a demonstrated need.
 
 Revisit SOLID, composition over inheritance, code smells, and refactoring technique whenever the current code provides a real example.
 
