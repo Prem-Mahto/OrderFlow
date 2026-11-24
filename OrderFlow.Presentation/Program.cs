@@ -8,18 +8,16 @@ public class Program
 {
     public static void Main()
     {
-        var order = new Order
-        {
-            Id = 1,
-            CustomerEmail = "prem@example.com",
-            Total = 1000,
-            PaymentMethod = "CARD",
-            DiscountCode = "SAVE10"
-        };
+        var order = new Order(
+            1,
+            "prem@example.com",
+            "CARD",
+            "SAVE10",
+            [new OrderLine("Sample product", 1000m, 1)]);
 
         var paymentStrategyFactory = new PaymentStrategyFactory(new ConsolePaymentGateway());
 
-        var service = new OrderService(new OrderValidator(),
+        var service = new OrderService(
             new DiscountStrategyFactory(),
             paymentStrategyFactory,
             new InMemoryOrderRepository(),

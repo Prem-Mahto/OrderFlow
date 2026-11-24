@@ -10,21 +10,13 @@ public class LegacyEmailNotificationAdapterTests
     public static void AdapterCallsLegacyEmailClient_test()
     {
         // Arrange
-        var order = new Order
-        {
-            Id = 1,
-            CustomerEmail = "customer@example.com",
-            Total = 100m,
-            PaymentMethod = "CARD",
-        };
-
-        var validator = new MockOrderValidator();
+        var order = OrderTestData.CreateOrder();
         var repository = new MockOrderRepository();
         var discountFactory = new MockDiscountStrategyFactory();
         var paymentFactory = new MockPaymentFactory();
         var mockLegacyEmailClient = new MockLegacyEmailClient();
 
-        var service = new OrderService(validator,
+        var service = new OrderService(
             discountFactory,
             paymentFactory,
             repository,
@@ -35,7 +27,6 @@ public class LegacyEmailNotificationAdapterTests
         service.ProcessOrder(order);
 
         // Assert
-        Assert.Equal(1, validator.CallCount);
         Assert.Equal(1, discountFactory.LastCreatedStrategy?.CallCount);
         Assert.Equal(1, paymentFactory.LastCreatedStrategy?.CallCount);
         Assert.Equal(1, repository.CallCount);

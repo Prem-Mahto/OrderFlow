@@ -33,4 +33,4 @@ The styles overlap here by design: the folder/project layout teaches layers firs
 
 ## Current limits
 
-The project boundary is in place, but the domain model is still early: `Order` has public setters and `OrderValidator` enforces rules outside the model. Pass 3 will address aggregate invariants. The architecture decision does not imply that the domain model is already a complete DDD model, nor does it require CQRS, Event Sourcing, a database, or a message broker.
+Pass 3 has made `Order` an aggregate root with validated `OrderLine` entities, read-only line access, computed subtotal, and controlled lifecycle transitions. Application selects a discount policy and coordinates payment, persistence, and notifications; the aggregate applies the selected domain policy and protects its own valid state. This is a tactical DDD step, not a claim that the model is a complete domain model. The architecture decision does not require CQRS, Event Sourcing, a database, or a message broker.

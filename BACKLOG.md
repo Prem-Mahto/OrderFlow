@@ -22,8 +22,10 @@ This file tracks intentionally deferred work by phase and pass. Items belong her
 
 ### Pass 3 — Tactical DDD: Order aggregate
 
-- **Status:** Active
-- **Note:** No backlog items recorded yet. Keep substantive aggregate design and implementation in the active learning work until explicitly deferred.
+- **Status:** Done
+- **Completed:** `Order` is an aggregate root containing validated `OrderLine` entities; totals are derived and discounting and lifecycle transitions are controlled by the aggregate. Application coordinates payment and cancels the order after a declined payment.
+- **Deferred:** User-initiated cancellation remains out of scope and is documented in the README for a later exercise.
+- **Documentation follow-up:** Refresh the existing Archify Phase 2 overview after these working-tree changes are committed, so its repository evidence can point to a verifiable source revision.
 
 ### Later Phase 2 passes
 

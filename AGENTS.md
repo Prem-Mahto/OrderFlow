@@ -19,7 +19,7 @@ The Phase 2 project responsibilities are:
 
 - `OrderFlow.Presentation` contains `Program` and the composition root.
 - `OrderFlow.Application` contains `OrderService`, payment strategies, application-owned ports, and the isolated Unit of Work practice.
-- `OrderFlow.Domain` contains `Order`, its current validator, and discount policies. `Order` is still mutable; aggregate invariants are a later Phase 2 task.
+- `OrderFlow.Domain` contains the `Order` aggregate root, `OrderLine`, lifecycle state, and discount policies. The aggregate validates its construction, derives totals from its lines, exposes read-only lines, and controls payment/cancellation/fulfillment transitions. Application owns workflow orchestration.
 - `OrderFlow.Infrastructure` implements application ports through in-memory persistence, a console payment gateway, notification adapters, and console logging.
 - `OrderFlow.Test.xUnit` references the application, domain, and infrastructure projects directly for tests.
 
@@ -57,8 +57,9 @@ Preserve this order unless the learner explicitly changes it:
 10. Completed: Phase 1 final review; the learner explicitly started Phase 2.
 11. Completed: establish Presentation, Application, Domain, and Infrastructure projects with inward project references.
 12. Completed: compare Layered, Clean, Onion, and Hexagonal Architecture and record the Phase 2 dependency decision in ADR-004.
-13. Next: model `Order` as an aggregate and enforce its invariants inside Domain; then define Ordering/Inventory contexts, an in-memory event, and an orchestration Saga.
-14. Later in Phase 2: evaluate CQRS, Event Sourcing, and monolith options; do not add infrastructure or patterns without a demonstrated need.
+13. Completed: model `Order` as an aggregate root containing `OrderLine` entities and enforce core invariants and lifecycle transitions in Domain. User-initiated cancellation remains deferred; the current application workflow cancels after payment failure.
+14. Next: define Ordering/Inventory contexts, an in-memory event, and an orchestration Saga.
+15. Later in Phase 2: evaluate CQRS, Event Sourcing, and monolith options; do not add infrastructure or patterns without a demonstrated need.
 
 Revisit SOLID, composition over inheritance, code smells, and refactoring technique whenever the current code provides a real example.
 
