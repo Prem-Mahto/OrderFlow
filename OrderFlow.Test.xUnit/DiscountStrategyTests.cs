@@ -40,14 +40,13 @@ public class DiscountStrategyTests
         var order = OrderTestData.CreateOrder(100m, "SAVE10");
 
         var repository = new MockOrderRepository();
-        var service = new OrderService(
-            new DiscountStrategyFactory(),
-            new MockPaymentFactory(),
+        var service = OrderTestData.CreateOrderService(
             repository,
-            new MockApplicationLogger());
+            OrderTestData.CreateInventory(),
+            new MockPaymentFactory());
 
         // Act
-        service.ProcessOrder(order);
+        service.PlaceOrder(order);
 
         // Assert
         Assert.Equal(1, repository.CallCount);
@@ -63,14 +62,13 @@ public class DiscountStrategyTests
         var order = OrderTestData.CreateOrder(100m, "UNKNOWN");
 
         var repository = new MockOrderRepository();
-        var service = new OrderService(
-            new DiscountStrategyFactory(),
-            new MockPaymentFactory(),
+        var service = OrderTestData.CreateOrderService(
             repository,
-            new MockApplicationLogger());
+            OrderTestData.CreateInventory(),
+            new MockPaymentFactory());
 
         // Act
-        service.ProcessOrder(order);
+        service.PlaceOrder(order);
 
         // Assert
         Assert.Equal(1, repository.CallCount);

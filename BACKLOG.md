@@ -27,7 +27,25 @@ This file tracks intentionally deferred work by phase and pass. Items belong her
 - **Deferred:** User-initiated cancellation remains out of scope and is documented in the README for a later exercise.
 - **Documentation follow-up:** Refresh the existing Archify Phase 2 overview after these working-tree changes are committed, so its repository evidence can point to a verifiable source revision.
 
-### Later Phase 2 passes
+### Pass 4 — Bounded contexts, integration event, and Saga
+
+- **Status:** Done
+- **Completed:** Ordering remains in `OrderFlow.Domain`; Inventory has its own `OrderFlow.Inventory` domain project. A synchronous in-memory `OrderPlaced` message carries order ID and SKU/quantity lines. The Application Saga reserves all lines atomically, charges payment, cancels the order when reservation fails, and releases the reservation if payment fails.
+- **Trade-off:** These are modules in one process, not independently deployed services. The in-memory event bus is synchronous and not durable.
+
+### Later Phase 2 — CQRS, Event Sourcing, and monolith decisions
 
 - **Status:** Not started
-- **Note:** Record deferred tasks here under their specific pass when they arise. Planned learning includes Ordering and Inventory bounded contexts, an in-memory `OrderPlaced` event, an orchestration Saga with inventory-failure compensation, and evidence-based evaluation of CQRS, Event Sourcing, and monolith options.
+- **Note:** Evaluate these concepts against concrete OrderFlow needs; do not add them without a demonstrated reason.
+
+#### Future follow-up — Payment retry window and inventory reservation expiry
+
+- **Status:** Backlogged
+- **Reason deferred:** The current Saga exercise will use the simpler policy: payment failure immediately fails/cancels the order and releases its successful inventory reservation.
+- **Future behavior to explore:** Allow a bounded payment retry period while inventory remains reserved; if the order is not paid before the policy deadline, fail the order and release the reservation.
+- **Acceptance criteria when resumed:** Define the retry window and allowed attempts, model the order and reservation states needed for the policy, release inventory only when the reservation expires or another valid compensation occurs, and test the time-dependent rules deterministically without real delays.
+
+#### Architecture diagram evidence refresh
+
+- **Status:** Backlogged
+- **Reason deferred:** The existing Pass 1 overview and dependency diagram predate the Inventory project and Saga. Refresh both after the current implementation is committed so the overview and project graph accurately cite the Ordering and Inventory contexts and current references.

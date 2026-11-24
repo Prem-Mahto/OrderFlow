@@ -17,20 +17,21 @@ Clean, Onion, and Hexagonal Architecture are related approaches, not perfectly i
 
 ## Current OrderFlow structure
 
-OrderFlow uses four .NET projects and remains one console process:
+OrderFlow uses the layered Presentation/Application/Domain/Infrastructure projects plus a dedicated Inventory domain project. It remains one console process:
 
 ```text
-Presentation → Application, Domain, Infrastructure
-Infrastructure → Application, Domain
+Presentation → Application, Domain, Infrastructure, Inventory
+Infrastructure → Application, Domain, Inventory
 Application → Domain
-Domain → no outer project
-Tests → Application, Domain, Infrastructure (test-time only)
+Domain (Ordering) → no outer project
+Inventory → no outer project
+Tests → Application, Domain, Inventory, Infrastructure (test-time only)
 ```
 
 This is a **layered project organization with inward compile-time dependencies**. The dependency direction follows the central rule in Clean and Onion Architecture. Application-owned interfaces act as ports, and Infrastructure implements them in a way that also uses Domain types. The runtime composition root in Presentation references the concrete projects so it can wire them together.
 
-The styles overlap here by design: the folder/project layout teaches layers first; inward references protect policy; ports and adapters explain how the technical edges connect. This does not make OrderFlow four services. All projects still run together in one process and deploy as one application.
+The styles overlap here by design: the project layout teaches layers first; inward references protect policy; ports and adapters explain how the technical edges connect. The Ordering and Inventory bounded contexts have separate domain models, but both still run in one process. The Inventory project is a module, not a separately deployed service.
 
 ## Current limits
 
-Pass 3 has made `Order` an aggregate root with validated `OrderLine` entities, read-only line access, computed subtotal, and controlled lifecycle transitions. Application selects a discount policy and coordinates payment, persistence, and notifications; the aggregate applies the selected domain policy and protects its own valid state. This is a tactical DDD step, not a claim that the model is a complete domain model. The architecture decision does not require CQRS, Event Sourcing, a database, or a message broker.
+Pass 3 made `Order` an aggregate root with validated `OrderLine` entities, read-only line access, computed subtotal, and controlled lifecycle transitions. Pass 4 added Inventory stock by SKU, an in-memory `OrderPlaced` integration event, and an Application Saga. The event contains only order ID and SKU/quantity lines. Application selects the discount policy and coordinates payment, persistence, and notifications; the aggregate applies the selected policy and protects its own valid state. The bus is synchronous and in-memory, so it does not provide durable delivery. These tactical DDD exercises do not require CQRS, Event Sourcing, a database, or a message broker.

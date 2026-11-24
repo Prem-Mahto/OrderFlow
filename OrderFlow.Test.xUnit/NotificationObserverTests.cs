@@ -15,20 +15,22 @@ public class NotificationObserverTests
         var paymentFactory = new MockPaymentFactory();
         var failingObserver = new MockFailingOrderObserver();
         var logger = new MockApplicationLogger();
-        var service = new OrderService(
-            discountFactory,
-            paymentFactory,
+        var service = OrderTestData.CreateOrderService(
             repository,
+            OrderTestData.CreateInventory(),
+            paymentFactory,
+            discountFactory,
             logger);
 
         service.RegisterObserver(failingObserver);
         // Act
-        service.ProcessOrder(order);
+        service.PlaceOrder(order);
 
         // Assert
         Assert.Equal(1, discountFactory.LastCreatedStrategy?.CallCount);
         Assert.Equal(1, paymentFactory.LastCreatedStrategy?.CallCount);
         Assert.Equal(1, repository.CallCount);
+        Assert.Equal(1, repository.UpdateCallCount);
         Assert.Equal(order, repository.LastSavedOrder);
         Assert.Equal(1, failingObserver.CallCount);
         Assert.Single(logger.Warnings);

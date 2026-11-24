@@ -18,14 +18,15 @@ Phase 1 is complete, and the learner explicitly started Phase 2. The current pas
 The Phase 2 project responsibilities are:
 
 - `OrderFlow.Presentation` contains `Program` and the composition root.
-- `OrderFlow.Application` contains `OrderService`, payment strategies, application-owned ports, and the isolated Unit of Work practice.
-- `OrderFlow.Domain` contains the `Order` aggregate root, `OrderLine`, lifecycle state, and discount policies. The aggregate validates its construction, derives totals from its lines, exposes read-only lines, and controls payment/cancellation/fulfillment transitions. Application owns workflow orchestration.
-- `OrderFlow.Infrastructure` implements application ports through in-memory persistence, a console payment gateway, notification adapters, and console logging.
+- `OrderFlow.Application` contains `OrderService`, `OrderPlacementSaga`, payment strategies, event/port contracts, and the isolated Unit of Work practice.
+- `OrderFlow.Domain` is the Ordering context: it contains the `Order` aggregate root, `OrderLine`, lifecycle state, and discount policies. The aggregate validates its construction, derives totals from its lines, exposes read-only lines, and controls payment/cancellation/fulfillment transitions. Application owns workflow orchestration.
+- `OrderFlow.Inventory` is the Inventory bounded context's domain project. It owns SKU stock and reservation invariants and has no reference to Ordering or Application.
+- `OrderFlow.Infrastructure` implements application ports through in-memory order persistence, the synchronous event bus, Inventory reservation adapter, a console payment gateway, notification adapters, and console logging.
 - `OrderFlow.Test.xUnit` references the application, domain, and infrastructure projects directly for tests.
 
-The intended direct project references are Presentation → Application/Domain/Infrastructure, Infrastructure → Application/Domain, and Application → Domain. Domain has no outer-project reference. Tests have test-time references only. Preserve the current inward direction unless a later learning exercise explicitly changes it.
+The intended direct project references are Presentation → Application/Domain/Infrastructure/Inventory, Infrastructure → Application/Domain/Inventory, and Application → Domain. Domain and Inventory have no outer-project references. Tests have test-time references to Application, Domain, Inventory, and Infrastructure. Preserve the current inward direction unless a later learning exercise explicitly changes it. Ordering and Inventory are separate modules in one process, not separate services.
 
-Architecture Decision Records are in `ADR/`. Architecture diagrams and the Phase 2 style comparison are in `architecture/`; they should reflect current code, not proposed future structure. The old `OrderFlow/OrderFlow.csproj` is no longer part of the solution; `OrderFlow.Presentation/OrderFlow.Presentation.csproj` is the console entry point.
+Architecture Decision Records are in `ADR/`. Architecture diagrams and the Phase 2 style comparison are in `architecture/`; they should reflect current code, not proposed future structure. The Order/Inventory event is synchronous and in-memory, with no durable delivery guarantee. The old `OrderFlow/OrderFlow.csproj` is no longer part of the solution; `OrderFlow.Presentation/OrderFlow.Presentation.csproj` is the console entry point.
 
 ## Mentoring approach
 
@@ -58,8 +59,8 @@ Preserve this order unless the learner explicitly changes it:
 11. Completed: establish Presentation, Application, Domain, and Infrastructure projects with inward project references.
 12. Completed: compare Layered, Clean, Onion, and Hexagonal Architecture and record the Phase 2 dependency decision in ADR-004.
 13. Completed: model `Order` as an aggregate root containing `OrderLine` entities and enforce core invariants and lifecycle transitions in Domain. User-initiated cancellation remains deferred; the current application workflow cancels after payment failure.
-14. Next: define Ordering/Inventory contexts, an in-memory event, and an orchestration Saga.
-15. Later in Phase 2: evaluate CQRS, Event Sourcing, and monolith options; do not add infrastructure or patterns without a demonstrated need.
+14. Completed: define Ordering and Inventory contexts, publish an in-memory `OrderPlaced` integration event, and orchestrate reservation/payment with cancellation and release compensations.
+15. Next: evaluate CQRS, Event Sourcing, and monolith options; do not add infrastructure or patterns without a demonstrated need.
 
 Revisit SOLID, composition over inheritance, code smells, and refactoring technique whenever the current code provides a real example.
 

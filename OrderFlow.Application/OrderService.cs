@@ -5,39 +5,40 @@ namespace OrderFlow.Application;
 public class OrderService
 {
     public OrderService(IDiscountStrategyFactory discountStrategyFactory,
-        IPaymentStrategyFactory paymentStrategyFactory,
         IOrderRepository orderRepository,
+        IOrderPlacedEventBus orderPlacedEventBus,
         IApplicationLogger logger)
     {
         _discountStrategyFactory = discountStrategyFactory;
-        _paymentStrategyFactory = paymentStrategyFactory;
         _orderRepository = orderRepository;
+        _orderPlacedEventBus = orderPlacedEventBus;
         _logger = logger;
     }
 
     private readonly IDiscountStrategyFactory _discountStrategyFactory;
-    private readonly IPaymentStrategyFactory _paymentStrategyFactory;
     private readonly IOrderRepository _orderRepository;
+    private readonly IOrderPlacedEventBus _orderPlacedEventBus;
     private readonly IApplicationLogger _logger;
     private List<IOrderObserver> _observers = new List<IOrderObserver>();
 
-    public void ProcessOrder(Order order)
+    public void PlaceOrder(Order order)
     {
         ArgumentNullException.ThrowIfNull(order);
 
         var discountStrategy = _discountStrategyFactory.Create(order.DiscountCode);
         order.ApplyDiscount(discountStrategy);
 
-        var paymentStrategy = _paymentStrategyFactory.Create(order.PaymentMethod);
-        if (!paymentStrategy.ProcessPayment(order.Total))
-        {
-            order.Cancel();
-            throw new InvalidOperationException("Payment processing failed.");
-        }
-
-        order.MarkPaid();
-
         _orderRepository.Add(order);
+
+        var orderPlaced = new OrderPlaced(
+            order.Id,
+            order.OrderLines.Select(line => new OrderPlacedLine(line.Sku, line.Quantity)));
+        _orderPlacedEventBus.Publish(orderPlaced);
+
+        if (order.State != OrderState.Paid)
+        {
+            throw new InvalidOperationException("The order-placement workflow did not complete payment.");
+        }
 
         NotifyObservers(order);
 

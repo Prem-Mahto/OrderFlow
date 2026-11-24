@@ -16,7 +16,7 @@ stateDiagram-v2
 ## Aggregate invariants represented in code
 
 - An order has a positive ID, nonblank customer email, nonblank payment method, and at least one non-null line.
-- Every `OrderLine` has a product name, positive unit price, and positive quantity.
+- Every `OrderLine` has a SKU, product name, positive unit price, and positive quantity.
 - The subtotal is derived from line totals; callers receive a read-only line collection.
 - A discount can be applied once while the order is pending, and the resulting total must be positive and no greater than the subtotal.
 - Only a pending order can become paid. Only a paid order can ship, and only a shipped order can be delivered.

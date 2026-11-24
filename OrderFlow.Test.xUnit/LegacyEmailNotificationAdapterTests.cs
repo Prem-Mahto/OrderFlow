@@ -16,20 +16,22 @@ public class LegacyEmailNotificationAdapterTests
         var paymentFactory = new MockPaymentFactory();
         var mockLegacyEmailClient = new MockLegacyEmailClient();
 
-        var service = new OrderService(
-            discountFactory,
-            paymentFactory,
+        var service = OrderTestData.CreateOrderService(
             repository,
+            OrderTestData.CreateInventory(),
+            paymentFactory,
+            discountFactory,
             new MockApplicationLogger());
 
         service.RegisterObserver(new LegacyEmailNotificationAdapter(mockLegacyEmailClient));
         // Act
-        service.ProcessOrder(order);
+        service.PlaceOrder(order);
 
         // Assert
         Assert.Equal(1, discountFactory.LastCreatedStrategy?.CallCount);
         Assert.Equal(1, paymentFactory.LastCreatedStrategy?.CallCount);
         Assert.Equal(1, repository.CallCount);
+        Assert.Equal(1, repository.UpdateCallCount);
         Assert.Equal(order, repository.LastSavedOrder);
 
         Assert.Equal(1, mockLegacyEmailClient.CallCount);

@@ -100,17 +100,25 @@ public class PaymentStrategyTests
         var discountFactory = new DiscountStrategyFactory();
         var paymentFactory = new PaymentStrategyFactory(failingGateway);
         var repository = new MockOrderRepository();
+        var inventory = OrderTestData.CreateInventory(10);
         var observer = new MockOrderObserver();
 
-        var orderService = new OrderService(discountFactory, paymentFactory, repository, new MockApplicationLogger());
+        var orderService = OrderTestData.CreateOrderService(
+            repository,
+            inventory,
+            paymentFactory,
+            discountFactory,
+            new MockApplicationLogger());
         orderService.RegisterObserver(observer);
 
         var order = OrderTestData.CreateOrder(100m, "NONE");
 
         // Act & Assert
-        Assert.Throws<InvalidOperationException>(() => orderService.ProcessOrder(order));
+        Assert.Throws<InvalidOperationException>(() => orderService.PlaceOrder(order));
         Assert.Equal(OrderState.Cancelled, order.State);
-        Assert.Equal(0, repository.CallCount);
+        Assert.Equal(1, repository.CallCount);
+        Assert.Equal(1, repository.UpdateCallCount);
+        Assert.Equal(10, inventory.GetAvailableQuantity(OrderTestData.SampleSku));
         Assert.Equal(0, observer.CallCount);
     }
 }

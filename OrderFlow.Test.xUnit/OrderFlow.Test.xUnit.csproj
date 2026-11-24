@@ -16,6 +16,7 @@
     <ProjectReference Include="..\OrderFlow.Application\OrderFlow.Application.csproj" />
     <ProjectReference Include="..\OrderFlow.Domain\OrderFlow.Domain.csproj" />
     <ProjectReference Include="..\OrderFlow.Infrastructure\OrderFlow.Infrastructure.csproj" />
+    <ProjectReference Include="..\OrderFlow.Inventory\OrderFlow.Inventory.csproj" />
   </ItemGroup>
 
   <ItemGroup>

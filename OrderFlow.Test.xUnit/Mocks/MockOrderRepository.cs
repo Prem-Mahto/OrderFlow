@@ -6,6 +6,8 @@ public class MockOrderRepository : IOrderRepository
 {
     public int CallCount { get; private set; }
 
+    public int UpdateCallCount { get; private set; }
+
     public Order? LastSavedOrder { get; private set; }
 
     public void Add(Order order)
@@ -14,8 +16,14 @@ public class MockOrderRepository : IOrderRepository
         LastSavedOrder = order;
     }
 
+    public void Update(Order order)
+    {
+        UpdateCallCount++;
+        LastSavedOrder = order;
+    }
+
     public Order? GetById(int orderId)
     {
-        throw new NotImplementedException();
+        return LastSavedOrder?.Id == orderId ? LastSavedOrder : null;
     }
 }

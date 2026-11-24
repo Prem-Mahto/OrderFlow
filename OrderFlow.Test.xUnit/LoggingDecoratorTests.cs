@@ -16,20 +16,22 @@ public class LoggingDecoratorTests
         var paymentFactory = new MockPaymentFactory();
         var orderObserver = new MockOrderObserver();
 
-        var service = new OrderService(
-            discountFactory,
-            paymentFactory,
+        var service = OrderTestData.CreateOrderService(
             repository,
+            OrderTestData.CreateInventory(),
+            paymentFactory,
+            discountFactory,
             new MockApplicationLogger());
 
         service.RegisterObserver(new LoggingOrderDecorator(orderObserver));
         // Act
-        service.ProcessOrder(order);
+        service.PlaceOrder(order);
 
         // Assert
         Assert.Equal(1, discountFactory.LastCreatedStrategy?.CallCount);
         Assert.Equal(1, paymentFactory.LastCreatedStrategy?.CallCount);
         Assert.Equal(1, repository.CallCount);
+        Assert.Equal(1, repository.UpdateCallCount);
 
         Assert.Equal(1, orderObserver.CallCount);
         Assert.Equal(order, orderObserver.LastSavedOrder);

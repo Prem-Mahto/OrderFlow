@@ -16,7 +16,7 @@ public class OrderAggregateTests
     public void Constructor_WithInvalidId_RejectsOrder(int id)
     {
         Assert.Throws<ArgumentOutOfRangeException>(() =>
-            new Order(id, "customer@example.com", "CARD", "", [new OrderLine("Book", 10m, 1)]));
+            new Order(id, "customer@example.com", "CARD", "", [new OrderLine("BOOK-1", "Book", 10m, 1)]));
     }
 
     [Theory]
@@ -25,7 +25,7 @@ public class OrderAggregateTests
     public void Constructor_WithMissingCustomerEmail_RejectsOrder(string customerEmail)
     {
         Assert.Throws<ArgumentException>(() =>
-            new Order(1, customerEmail, "CARD", "", [new OrderLine("Book", 10m, 1)]));
+            new Order(1, customerEmail, "CARD", "", [new OrderLine("BOOK-1", "Book", 10m, 1)]));
     }
 
     [Theory]
@@ -34,20 +34,20 @@ public class OrderAggregateTests
     public void Constructor_WithMissingPaymentMethod_RejectsOrder(string paymentMethod)
     {
         Assert.Throws<ArgumentException>(() =>
-            new Order(1, "customer@example.com", paymentMethod, "", [new OrderLine("Book", 10m, 1)]));
+            new Order(1, "customer@example.com", paymentMethod, "", [new OrderLine("BOOK-1", "Book", 10m, 1)]));
     }
 
     [Fact]
     public void Constructor_CopiesOrderLinesAndCalculatesSubtotal()
     {
-        var lines = new List<OrderLine> { new("Book", 10m, 2) };
+        var lines = new List<OrderLine> { new("BOOK-1", "Book", 10m, 2) };
         var order = new Order(1, "customer@example.com", "CARD", "", lines);
-        lines.Add(new OrderLine("Pen", 2m, 1));
+        lines.Add(new OrderLine("PEN-1", "Pen", 2m, 1));
 
         Assert.Single(order.OrderLines);
         Assert.Equal(20m, order.Subtotal);
         Assert.Equal(20m, order.Total);
-        Assert.Throws<NotSupportedException>(() => ((IList<OrderLine>)order.OrderLines).Add(new("Pen", 2m, 1)));
+        Assert.Throws<NotSupportedException>(() => ((IList<OrderLine>)order.OrderLines).Add(new("PEN-1", "Pen", 2m, 1)));
     }
 
     [Fact]
